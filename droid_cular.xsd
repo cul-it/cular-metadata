@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--**************************************************************************************
+ TITLE       : DROID CULAR XSD Schema
+ DESCRIPTION : This document expresses the basic structure and
+               constraints for DROID metadata for CULAR objects.
+               It extends the oai_dc XSD to include new fields         
+               that are used for the DROID CULAR profile.
+ PROFILE:      dc:date == Date DROID CULAR metadata generated (date DROID ran)      {1,1}
+               dc:format == Extension (file extension)                              {1,1}
+               dc:identifier == CULAR identifier for file/resource                  {1,1}
+               dc:relation == CULAR Repository (i.e. CULAR)                         {1,n}
+               dc:source == Method (DROID File identifier source)                   {1,n}
+               dc:title == filename (resource DROID was run against)                {1,1}
+               dct:alternative == alternative filename (resource DROID ran against) {0,n}
+               ebucore:mimetype == MIMEtype                                         {1,1}
+               ebucore:filesize == Filesize                                         {1,1}
+               pronom:puid == PUID                                                  {1,1}
+               dct:provenance == DROID Provenance and Signature File Provenance     {1,n}
+               premis:formatDesignation/premis:formatName == Format Information     {0,n}
+               premis:formatDesignation/premis:formatVersion == Format Version      {0,n}
+****************************************************************************************-->
+<xs:schema xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/"
+    targetNamespace="http://www.openarchives.org/OAI/2.0/oai_dc/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dct="http://purl.org/dc/terms/"
+    xmlns:ebucore="urn:ebu:metadata-schema:ebuCore_2015"
+    xmlns:premis="http://www.loc.gov/premis/v3" xmlns:pronum="info:pronom/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+    <xsd:annotation>
+        <xs:documentation xml:lang="en">
+            DROID CULAR fedora object/datastream XML schema. Created by Christina Harlow (cmh329@cornell.edu) 2016-08-09.
+        </xs:documentation>
+    </xsd:annotation>
+
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
+    <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd"/>
+    <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="http://dublincore.org/schemas/xmls/qdc/2008/02/11/dcterms.xsd"/>
+    <xs:import namespace="http://www.loc.gov/premis/v3" schemaLocation="http://www.loc.gov/standards/premis/premis.xsd"/>
+
+    <xs:redefine schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+        <xs:complexType name="oai_dcType">
+            <xs:complexContent>
+                <xs:extension base="oai_dcType">
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                        <!-- Date DROID CULAR metadata generated (date DROID ran) {1,1} -->
+                        
+                        
+                        <!-- Extension (file extension) {1,1} -->
+                        
+                        
+                        <!-- CULAR identifier for file/resource {1,1} -->
+                        <xs:element ref="dct:title" />
+                        
+                        <!-- CULAR Repository (i.e. CULAR) {1,n} -->
+                        
+                        
+                        <!-- Method (DROID File identifier source) {1,n} -->
+                        
+                        
+                        <!-- filename (resource DROID was run against) {1,1} -->
+                        
+                        
+                        <!-- alternative filename (resource DROID ran against) {0,n} -->
+                         
+                        <!-- MIMEtype {1,1} -->
+                        <xs:element name="mimeType" />
+                        
+                        <!-- Filesize {1,1} -->
+                        <xs:element ref="premis:objectCharacteristics"/>
+                        
+                        <!-- DROID Provenance and Signature File Provenance {1,n} -->
+                        <xs:element ref="dct:provenance"/>
+                        
+                        <!-- Format Information {0,n} -->
+                        
+                        <!-- Format Version {0,n} -->
+                        
+                        <!-- PUID type ('puid') {1,1} -->
+                        
+                        <!-- PUID value ('abc/12') {1,1} -->
+                        <xs:element ref="premis:objectIdentifier"/>
+                        
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:redefine>
+
+</xs:schema>
