@@ -44,49 +44,46 @@
     <xs:element name="droid" type="oai_cularType"/>
 
     <xs:complexType name="oai_droidType">
-        <xs:complexContent>
-            <xs:choice maxOccurs="unbounded" minOccurs="0">
-                <!-- Date DROID CULAR metadata generated (date DROID ran) {1,1} -->
-                
-                
-                <!-- Extension (file extension) {1,1} -->
-                
-                
-                <!-- CULAR identifier for file/resource {1,1} -->
-                <xs:element ref="dct:title" />
-                
-                <!-- CULAR Repository (i.e. CULAR) {1,n} -->
-                
-                
-                <!-- Method (DROID File identifier source) {1,n} -->
-                
-                
-                <!-- filename (resource DROID was run against) {1,1} -->
-                
-                
-                <!-- alternative filename (resource DROID ran against) {0,n} -->
-                 
-                <!-- MIMEtype {1,1} -->
-                <xs:element name="mimeType" />
-                
-                <!-- Filesize {1,1} -->
-                <xs:element ref="premis:objectCharacteristics"/>
-                
-                <!-- DROID Provenance and Signature File Provenance {1,n} -->
-                <xs:element ref="dct:provenance"/>
-                
-                <!-- Format Information {0,n} -->
-                
-                <!-- Format Version {0,n} -->
-                
-                <!-- PUID type ('puid') {1,1} -->
-                
-                <!-- PUID value ('abc/12') {1,1} -->
-                <xs:element ref="premis:objectIdentifier"/>
-                
-            </xs:choice>
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <!-- Date DROID CULAR metadata generated (date DROID ran) {1,1} -->
             
-        </xs:complexContent>
+            
+            <!-- Extension (file extension) {1,1} -->
+            
+            
+            <!-- CULAR identifier for file/resource {1,1} -->
+            <xs:element ref="dct:title" />
+            
+            <!-- CULAR Repository (i.e. CULAR) {1,n} -->
+            
+            
+            <!-- Method (DROID File identifier source) {1,n} -->
+            
+            
+            <!-- filename (resource DROID was run against) {1,1} -->
+            
+            
+            <!-- alternative filename (resource DROID ran against) {0,n} -->
+             
+            <!-- MIMEtype {1,1} -->
+            <xs:element name="mimeType" />
+            
+            <!-- Filesize {1,1} -->
+            <xs:element ref="premis:objectCharacteristics"/>
+            
+            <!-- DROID Provenance and Signature File Provenance {1,n} -->
+            <xs:element ref="dct:provenance"/>
+            
+            <!-- Format Information {0,n} -->
+            
+            <!-- Format Version {0,n} -->
+            
+            <!-- PUID type ('puid') {1,1} -->
+            
+            <!-- PUID value ('abc/12') {1,1} -->
+            <xs:element ref="premis:objectIdentifier"/>
+            
+        </xs:choice>
     </xs:complexType>
 
 </xs:schema>
