@@ -1,18 +1,18 @@
 {
     "Collection Name": {
-        "phys_coll_id": "bib|archival|other", (required if available)
-        "number_files": int, (required if available)
-        "steward": "netID", (required if available)
-        "date_s3_ingest": YYYY-MM-DD, (auto-generated)
-        "date_s3_update": YYYY-MM-DD, (auto-generated)
+        "phys_coll_id": "bib|archival|other",
+        "number_files": 123,
+        "steward": "netID",
+        "date_s3_ingest": 2016-08-10,
+        "date_s3_update": 2016-08-10,
         "items": {
             "item_subdir": {
                 "filename" : {
-                    "video_number": "video id", (required if available)
-                    "bib_id": "bibliographic record id", (required if available)
-                    "part_num": int, (if applicable)
-                    "md5": hash (strongly recommended when available)
-                    "size": int (strongly recommended when available)
+                    "video_number": "video id",
+                    "bib_id": "bibliographic record id",
+                    "part_num": 123,
+                    "md5": "hash"
+                    "size": 123
                     }
             }
         }
