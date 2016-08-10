@@ -21,7 +21,7 @@
 ****************************************************************************************-->
 <xs:schema xmlns="info:fedora_test/cular_droid/"
     targetNamespace="info:fedora_test/cular_droid/"
-    xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dct="http://purl.org/dc/terms/"
+    xmlns:dct="http://purl.org/dc/terms/"
     xmlns:ebucore="urn:ebu:metadata-schema:ebuCore_2015"
     xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
     xmlns:premis="http://www.loc.gov/premis/v3" xmlns:pronum="info:pronom/"
@@ -36,53 +36,46 @@
     </xsd:annotation>
 
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
-    <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd"/>
     <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="http://dublincore.org/schemas/xmls/qdc/2008/02/11/dcterms.xsd"/>
     <xs:import namespace="http://www.openarchives.org/OAI/2.0/oai_dc/" schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc.xsd" />
     <xs:import namespace="http://www.loc.gov/premis/v3" schemaLocation="http://www.loc.gov/standards/premis/premis.xsd"/>
     
-    <xs:element name="droid" type="oai_cularType"/>
+    <xs:element name="droid" type="oai_droidType"/>
 
     <xs:complexType name="oai_droidType">
         <xs:choice maxOccurs="unbounded" minOccurs="0">
-            <!-- Date DROID CULAR metadata generated (date DROID ran) {1,1} -->
+            <!-- Date DROID CULAR metadata generated (date DROID ran, e.g. 2016-08-09) {1,1} -->
+            <xs:element ref="dct:date" />
             
+            <!-- Extension (file extension, e.g. .pdf) {1,1} -->
+            <xs:element ref="dct:type" />
             
-            <!-- Extension (file extension) {1,1} -->
+            <!-- CULAR identifier for file/resource (e.g. PID1234) {1,1} -->
+            <xs:element ref="dct:identifier" />
             
+            <!-- CULAR Repository (i.e. 'CULAR') {1,n} -->
+            <xs:element ref="dct:isPartOf" />
             
-            <!-- CULAR identifier for file/resource {1,1} -->
+            <!-- Method (DROID File identifier source, note?) {1,n} -->
+            <xs:element ref="dct:source" />
+            
+            <!-- filename (resource DROID was run against, e.g. 'test.pdf') {1,1} -->
             <xs:element ref="dct:title" />
-            
-            <!-- CULAR Repository (i.e. CULAR) {1,n} -->
-            
-            
-            <!-- Method (DROID File identifier source) {1,n} -->
-            
-            
-            <!-- filename (resource DROID was run against) {1,1} -->
-            
-            
-            <!-- alternative filename (resource DROID ran against) {0,n} -->
              
-            <!-- MIMEtype {1,1} -->
-            <xs:element name="mimeType" />
+            <!-- MIMEtype (e.g. 'application/pdf') {1,1} -->
+            <xs:element ref="dct:format" />
             
-            <!-- Filesize {1,1} -->
-            <xs:element ref="premis:objectCharacteristics"/>
+            <!-- Filesize (e.g. '1234 bytes') {1,1} -->
+            <xs:element ref="dct:extent" />
             
             <!-- DROID Provenance and Signature File Provenance {1,n} -->
             <xs:element ref="dct:provenance"/>
             
-            <!-- Format Information {0,n} -->
-            
-            <!-- Format Version {0,n} -->
+            <!-- Format Information, Format Version {0,n} -->
+            <xs:element ref="dct:description" />
             
             <!-- PUID type ('puid') {1,1} -->
-            
-            <!-- PUID value ('abc/12') {1,1} -->
-            <xs:element ref="premis:objectIdentifier"/>
-            
+           <xs:element ref="dct:conformsTo" />            
         </xs:choice>
     </xs:complexType>
 
