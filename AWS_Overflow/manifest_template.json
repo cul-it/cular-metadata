@@ -11,7 +11,7 @@
                     "video_number": "video id",
                     "bib_id": "bibliographic record id",
                     "part_num": 123,
-                    "md5": "hash"
+                    "md5": "hash",
                     "size": 123
                     }
             }
