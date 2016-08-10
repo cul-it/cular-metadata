@@ -1,0 +1,2 @@
+ID,PARENT_ID,URI,FILE_PATH,NAME,METHOD,STATUS,SIZE,TYPE,EXT,LAST_MODIFIED,EXTENSION_MISMATCH,HASH,FORMAT_COUNT,PUID,MIME_TYPE,FORMAT_NAME,FORMAT_VERSION
+2,0,file:/cul/app/droid/stuff/fulltext.pdf,/cul/app/droid/stuff/fulltext.pdf,fulltext.pdf,Signature,Done,938845,File,pdf,2016-04-26T11:27:11,FALSE,,1,fmt/19,application/pdf,Acrobat PDF 1.5 - Portable Document Format,1.5
