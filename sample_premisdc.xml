@@ -13,7 +13,7 @@
   <dc:description>$droid_version|$droid_date_ran</dc:description>
   <dc:description>droid_sig_file_version:$signature_file_version</dc:description>
   <!-- sig_file_provenance -->
-  <dc:description>$format_name|version:$format_version </dc:format>  
+  <dc:description>droid_sig_file_version:$signature_file_version</dc:description>
   <!-- Repository -->
   <dc:relation>CULAR</dc:relation>
   <!-- Method of Verification -->
@@ -23,21 +23,21 @@
   <!-- mimetype -->
   <dc:type>text/xml</dc:type>
   
-  <!-- PREMIS -->
-  <premis:objectCharacteristics>
-    <!-- File Size -->
-    <premis:size>1234</premis:size>
+  <!-- PREMIS - note, order matters here for validation -->
   <!-- PUID -->
   <premis:objectIdentifier>
     <premis:objectIdentifierType>puid</premis:objectIdentifierType>
     <premis:objectIdentifierValue>abc/123</premis:objectIdentifierValue>
   </premis:objectIdentifier>
-  <!-- DROID Format Name, Info -->
+  <premis:objectCharacteristics>
+    <!-- File Size -->
+    <premis:size>1234</premis:size>
+    <!-- DROID Format Name, Info -->
     <premis:format>
       <premis:formatDesignation>
-        <premis:formatName>DROID</premis:formatName>
+        <premis:formatName>DROID file output</premis:formatName>
       </premis:formatDesignation>
-      <premis:formatNote>Format Version something?</premis:formatNote>
+      <premis:formatNote>Acrobat PDF 1.5 - Portable Document Format</premis:formatNote>
     </premis:format>
   </premis:objectCharacteristics>
 </oai_dc:dc>
