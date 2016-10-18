@@ -11,7 +11,8 @@
                     "access": "Value from TBD Access Vocabulary",
                     "digital_rights": "Value from TBD Rights Vocabulary",
                     "video_number": "video id",
-                    "bib_id": "bibliographic record id",
+                    "source_bibid": "bibliographic record id",
+                    "e_bibid": "bibliographic record id",
                     "part_num": 123,
                     "md5": "hash",
                     "size": 123
