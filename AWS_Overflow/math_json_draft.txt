@@ -1,0 +1,43 @@
+{
+    "MATH VIDEOS": {
+        "timestamp": "2016-12-09",
+        "items": {
+            "MATH_2330244_V0092": {
+                "MATH_2330244_V0092_audit.txt": {
+                    "size": "287",
+                    "sha1": "1ca143d9db8f20fcfe374708117660ca51e8d5db",
+                    "video_number": "0092",
+                    "bibid": "2330244"
+                },
+                "MATH_2330244_V0092_exiftool.txt": {
+                    "size": "820",
+                    "sha1": "064c08fa1f0664c7ad5ab857cb796853eaafd81f",
+                    "video_number": "0092",
+                    "bibid": "2330244"
+                },
+                "MATH_2330244_V0092_mp4_exiftool.txt": {
+                    "size": "2996",
+                    "sha1": "c9663e6cd2e893f5990df5cf2ed31067e0b0eb86",
+                    "video_number": "0092",
+                    "bibid": "2330244"
+                }
+            },
+            "MATH_2330243_V0093": {
+                "MATH_2330243_V0093_mp4_exiftool.txt": {
+                    "size": "5998",
+                    "sha1": "709a1f6faeef8b969f35498c3f086732b0357e5e",
+                    "video_number": "0093",
+                    "bibid": "2330243"
+                },
+                "MATH_2330243_V0093_exiftool.txt": {
+                    "size": "819",
+                    "sha1": "b187a923258b1061ebd6a09072df72b2ac78132b",
+                    "video_number": "0093",
+                    "bibid": "2330243"
+                }
+            }
+        },
+        "phys_coll_id": "6789012",
+        "steward": "abc123"
+    }
+}
