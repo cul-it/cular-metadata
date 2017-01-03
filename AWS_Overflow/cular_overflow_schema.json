@@ -1,0 +1,68 @@
+{
+    "id": "http://tbd/schema.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "required": [ "collection" ],
+    "properties": {
+        "/": {},
+        "collection_name": {"$ref": "#/definitions/collection"},
+        "items": {"$ref": "#/definitions/item"},
+        "item_subdir": {"$ref": "#/definitions/subdir"},
+        "filename": {"$ref": "#/definitions/file"}
+    },
+    "definitions": {
+        "collection": {
+            "type": "object",
+            "properties": {
+                "phys_coll_id": { "type": "string" },
+                "number_files": { "type": "integer" },
+                "steward": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z]{1,4}[0-9]{1,6}$" },
+                "date_s3_ingest": {
+                    "type": "string",
+                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+                "date_s3_update": {
+                    "type": "string",
+                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+                "items": {
+                    "type": "object",
+                    "$ref": "#/definitions/item"
+                }
+            },
+            "required": [ "date_s3_ingest", "items" ]
+        },
+        "item": {
+            "type": "object",
+            "properties": {
+                "item_subdir": {
+                    "type": "object",
+                    "$ref": "#/definitions/subdir"
+                }
+            },
+            "required": [ "item_subdir" ]
+        },
+        "subdir": {
+            "type": "object",
+            "properties": {
+                "filenames": {
+                    "type": "object",
+                    "$ref": "#/definitions/file"
+                }
+            },
+            "required": [ "filenames" ]
+        },
+        "file": {
+            "type": "object",
+            "properties": {
+                "phys_coll_id": { "type": "string" },
+                "video_number": { "type": "string" },
+                "bib_id": { "type": "string" },
+                "part_num": { "type": "string" },
+                "md5": { "type": "string" },
+                "size": { "type": "integer" }
+            },
+            "required": [ "video_number", "size", "md5" ]
+        }
+    }
+}
