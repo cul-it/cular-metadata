@@ -1,0 +1,254 @@
+{
+	"MATHEMATICS" : {
+		"LecturesTapes": {
+			"phys_coll_id": "",
+			"number_files": 18,
+			"steward": "swr1",
+			"items": {
+						"MATH_2095786_V0020" : {
+							
+							"MATH_2095786_V0020_3000Kbps.mp4": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "20",
+								"bib_id": "2095786",
+								"sha1": "6a1ad067a8aadbb43ff6ed9d52351951548d9bae",
+								"size": "",
+								"md5": ""
+								},
+								
+							"MATH_2095786_V0020.mov": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",							
+								"video_number": "20",
+								"bib_id": "2095786",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								}
+							},
+										
+						"MATH_2726859_V0098" : {
+						
+							"MATH_2726859_V0098_3000Kbps.mp4": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "98",
+								"bib_id": "2726859",
+								"sha1": "0188ec8b24f1e29065fccf1ac10f4bd8f0be95dc",
+								"size": "",
+								"md5": ""
+								},
+							
+							"MATH_2726859_V0098.mov": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "98",
+								"bib_id": "2726859",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								}
+							},
+						
+						"MATH_5341120_V0122" : {
+
+							"MATH_5341120_V0122_3000Kbps.mp4": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "122",
+								"bib_id": "5341120",
+								"sha1": "47064f410171f551fa79e82d59cd73969ddfc391",
+								"size": "",
+								"md5": ""
+								},
+
+							"MATH_5341120_V0122.mov": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",							
+								"video_number": "122",
+								"bib_id": "5341120",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								}
+							},
+
+						"MATH_2696371_V0096" : {
+
+							"MATH_2696371_V0096_DERIVATIVE.mp4": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "96",
+								"bib_id": "2696371",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								},
+
+							"MATH_2696371_V0096.mov": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "96",
+								"bib_id": "2696371",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								}
+							},
+
+						"MATH_2330243_V0093" : {
+
+							"MATH_2330243_V0093_DERIVATIVE.mp4": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "93",
+								"bib_id": "2330243",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								},
+
+							"MATH_2330243_V0093.mov": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "93",
+								"bib_id": "2330243",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								}
+							},
+
+						"MATH_2892710_V0039" : {
+
+							"MATH_2892710_V0039_DERIVATIVE.mp4": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "39",
+								"bib_id": "2892710",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								},
+
+							"MATH_2892710_V0039.mov": {
+								"date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "39",
+								"bib_id": "2892710",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								}
+							},
+						
+						"MATH_5015309_V0121" : {
+							"MATH_5015309_V0121_DERIVATIVE.mp4": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "121",
+								"bib_id": "5015309",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								},
+
+							"MATH_5015309_V0121.mov": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "121",
+								"bib_id": "5015309",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								}
+							},
+
+						"MATH_2330244_V0092" : {
+							"MATH_2330244_V0092_DERIVATIVE.mp4": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "92",
+								"bib_id": "2330244",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								},
+
+							"MATH_2330244_V0092.mov": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "92",
+								"bib_id": "2330244",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								}
+							},
+
+						"MATH_9675834_V0000" : {
+							"MATH_9675834_V0000_DERIVATIVE.mp4": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "",
+								"bib_id": "9675834",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								},
+
+							"MATH_9675834_V0000.mov": {
+							    "date_s3_ingest": "2016-08-10",
+                    			"date_s3_update": "2016-08-10",
+                    			"access": "Value from TBD Access Vocabulary",
+								"digital_rights": "Value from TBD Rights Vocabulary",
+								"video_number": "",
+								"bib_id": "9675834",
+								"sha1": "",
+								"size": "",
+								"md5": ""
+								}
+							}
+						}
+					}
+				}
+			}
+					
+					
+					
+					

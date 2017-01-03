@@ -3,13 +3,16 @@
         "phys_coll_id": "bib|archival|other",
         "number_files": 123,
         "steward": "netID",
-        "date_s3_ingest": 2016-08-10,
-        "date_s3_update": 2016-08-10,
         "items": {
             "item_subdir": {
                 "filename" : {
+                    "date_s3_ingest": 2016-08-10,
+                    "date_s3_update": 2016-08-10,
+                    "access": "Value from TBD Access Vocabulary",
+                    "digital_rights": "Value from TBD Rights Vocabulary",
                     "video_number": "video id",
-                    "bib_id": "bibliographic record id",
+                    "source_bibid": "bibliographic record id",
+                    "e_bibid": "bibliographic record id",
                     "part_num": 123,
                     "md5": "hash",
                     "size": 123

@@ -1,23 +1,10 @@
-Just dumping for now the full template to be made into a profile doc:
+# AWS Punting Plan JSON generation
 
+Here are attempts at (semi)automatedly generating JSON manifests for collections being prepped for AWS from hashdeep manifest files.
 
-{
-    "Collection Name": {
-        "phys_coll_id": "bib|archival|other", (required if available)
-        "number_files": int, (required if available)
-        "steward": "netID", (required if available)
-        "date_s3_ingest": YYYY-MM-DD, (auto-generated)
-        "date_s3_update": YYYY-MM-DD, (auto-generated)
-        "items": {
-            "item_subdir": {
-                "filename" : {
-                    "video_number": "video id", (required if available)
-                    "bib_id": "bibliographic record id", (required if available)
-                    "part_num": int, (if applicable)
-                    "md5": hash (strongly recommended when available)
-                    "size": int (strongly recommended when available)
-                    }
-            }
-        }
-    }
-}
+Included in this folder are:
+* `hashdeep_to_json.py`: python script that generates JSON from hashdeep and user-supplied input
+* `mathtest.txt`: dummy hashdeep file for testing purposes
+* `math_json_draft.txt`: sample output from `hashdeep_to_json.py` and `mathtest.txt`
+* `previous_drafts`: older attempts, kept for historical purposes only
+
