@@ -1,15 +1,14 @@
 {
     "id": "http://tbd/schema.json",
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-06/schema#",
     "type": "object",
-    "required": [ "collection" ],
-    "properties": {
-        "/": {},
-        "collection_name": {"$ref": "#/definitions/collection"},
-        "items": {"$ref": "#/definitions/item"},
-        "item_subdir": {"$ref": "#/definitions/subdir"},
-        "filename": {"$ref": "#/definitions/file"}
+    "patternProperties": {
+        "^.*$": {
+            "$ref": "#/definitions/collection"
+        }
     },
+    "minProperties": 1,
+    "maxProperties": 1,
     "definitions": {
         "collection": {
             "type": "object",
@@ -19,50 +18,54 @@
                 "steward": {
                     "type": "string",
                     "pattern": "^[a-zA-Z]{1,4}[0-9]{1,6}$" },
-                "date_s3_ingest": {
-                    "type": "string",
-                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
-                "date_s3_update": {
-                    "type": "string",
-                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+                "locations": {
+                    "$ref": "#/definitions/locations"
+                }, 
                 "items": {
-                    "type": "object",
                     "$ref": "#/definitions/item"
                 }
             },
-            "required": [ "date_s3_ingest", "items" ]
+            "required": [ "number_files", "steward", "locations", "items" ]
         },
         "item": {
-            "type": "object",
-            "properties": {
-                "item_subdir": {
-                    "type": "object",
-                    "$ref": "#/definitions/subdir"
+            "patternProperties": {
+                "^.*$": {
+                    "$ref": "#/definitions/directory"
                 }
-            },
-            "required": [ "item_subdir" ]
+            }
         },
-        "subdir": {
-            "type": "object",
-            "properties": {
-                "filenames": {
-                    "type": "object",
+        "directory": {
+            "patternProperties": {
+                "^.*$": {
                     "$ref": "#/definitions/file"
                 }
-            },
-            "required": [ "filenames" ]
+            }
         },
         "file": {
             "type": "object",
             "properties": {
-                "phys_coll_id": { "type": "string" },
-                "video_number": { "type": "string" },
                 "bib_id": { "type": "string" },
-                "part_num": { "type": "string" },
                 "md5": { "type": "string" },
+                "sha1": { "type": "string" },
                 "size": { "type": "integer" }
             },
-            "required": [ "video_number", "size", "md5" ]
+            "required": [ "size", "sha1" ]
+        },
+        "locations": {
+            "type": "object",
+            "patternProperties" : {
+                "^.*$": {
+                    "$ref": "#/definitions/storageloc"
+                }
+            }
+        },
+        "storageloc": {
+            "type": "object",
+            "properties": {
+                "date_ingest": {
+                    "type": "string",
+                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+            }
         }
     }
 }
