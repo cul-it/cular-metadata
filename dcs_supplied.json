@@ -2,7 +2,6 @@
     "DEPOSITOR/COLLECTION": {
         "phys_coll_id": "bib|archival|other (required if available)",
         "steward": "netID (required if available)",
-        },
         "items": {
             "SUBDIR_NAME": {
                 "FILENAME" : {
