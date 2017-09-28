@@ -1,0 +1,94 @@
+{
+    "id": "http://tbd/schema.json",
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "type": "object",
+    "patternProperties": {
+        "^.*$": {
+            "$ref": "#/definitions/collection"
+        }
+    },
+    "maxProperties": 1,
+    "definitions": {
+        "collection": {
+            "type": "object",
+            "properties": {
+                "phys_coll_id": {
+                    "type": "string",
+                    "description": "bib|archival|other (required if available)"
+                },
+                "steward": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z]{1,4}[0-9]{1,6}$",
+                    "description": "netID (required if available)"
+                },
+                "number_files": {
+                    "type": "integer",
+                    "description": "int (required if available)"
+                },
+                "locations": {
+                    "$ref": "#/definitions/locations"
+                },
+                "items": {
+                    "$ref": "#/definitions/item"
+                }
+            },
+            "required": [ "steward", "items" ]
+        },
+        "item": {
+            "patternProperties": {
+                "^.*$": {
+                    "$ref": "#/definitions/directory"
+                }
+            }
+        },
+        "directory": {
+            "patternProperties": {
+                "^.*$": {
+                    "$ref": "#/definitions/file"
+                }
+            }
+        },
+        "file": {
+            "type": "object",
+            "properties": {
+                "bib_id": { "type": "string" },
+                "md5": { "type": "string" },
+                "sha1": { "type": "string" },
+                "size": { "type": "integer" }
+            },
+            "required": [ "size", "sha1" ]
+        },
+        "locations": {
+            "type": "object",
+            "properties": {
+                "s3": {
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "uri": {
+                                "type": "string",
+                                "pattern": "^s3://.*"
+                            }
+                        },
+                        "required": ["uri"]
+                    },
+                    "minItems": 1
+                },
+                "sfs": {
+                    "type": "array",
+                    "items": {
+                        "properties": {
+                            "uri": {
+                                "type": "string",
+                                "pattern": "sfs.*/.*"
+                            }
+                        },
+                        "required": ["uri"]
+                    },
+                    "minItems": 1
+                }
+            },
+            "required": ["s3", "sfs"]
+        }
+    }
+}
