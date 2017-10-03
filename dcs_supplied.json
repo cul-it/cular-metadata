@@ -1,0 +1,16 @@
+{
+    "DEPOSITOR/COLLECTION": {
+        "phys_coll_id": "bib|archival|other (required if available)",
+        "steward": "netID (required if available)",
+        "items": {
+            "SUBDIR_NAME": {
+                "FILENAME" : {
+                    "bib_id": "bibliographic record id (required if available)",
+                    "sha1": "hash (required)",
+                    "md5": "hash (optional)",
+                    "size": "int (required)"
+                }
+            }
+        }
+    }
+}

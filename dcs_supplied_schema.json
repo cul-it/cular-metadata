@@ -7,25 +7,20 @@
             "$ref": "#/definitions/collection"
         }
     },
-    "minProperties": 1,
     "maxProperties": 1,
     "definitions": {
         "collection": {
             "type": "object",
             "properties": {
                 "phys_coll_id": { "type": "string" },
-                "number_files": { "type": "integer" },
                 "steward": {
                     "type": "string",
                     "pattern": "^[a-zA-Z]{1,4}[0-9]{1,6}$" },
-                "locations": {
-                    "$ref": "#/definitions/locations"
-                }, 
                 "items": {
                     "$ref": "#/definitions/item"
                 }
             },
-            "required": [ "number_files", "steward", "locations", "items" ]
+            "required": [ "steward", "items" ]
         },
         "item": {
             "patternProperties": {
@@ -51,24 +46,5 @@
             },
             "required": [ "size", "sha1" ]
         },
-        "locations": {
-            "type": "object",
-            "patternProperties" : {
-                "^.*$": {
-                    "$ref": "#/definitions/storageloc"
-                }
-            }
-        },
-        "storageloc": {
-            "type": "object",
-            "properties": {
-                "date_ingest": {
-                    "type": "string",
-                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
-                "date_update": {
-                	"type": "string",
-                	"pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
-            }
-        }
     }
 }
