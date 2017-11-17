@@ -14,7 +14,7 @@
         "items": {
             "SUBDIR_NAME": {
                 "FILENAME" : {
-                    "bib_id": "bibliographic record id (required if available)",
+                    "bibid": "bibliographic record id (required if available)",
                     "sha1": "hash (required)",
                     "md5": "hash (optional)",
                     "size": "int (required)"
