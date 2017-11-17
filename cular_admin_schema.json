@@ -51,7 +51,7 @@
         "file": {
             "type": "object",
             "properties": {
-                "bib_id": { "type": "string" },
+                "bibid": { "type": "string" },
                 "md5": { "type": "string" },
                 "sha1": { "type": "string" },
                 "size": { "type": "integer" }
