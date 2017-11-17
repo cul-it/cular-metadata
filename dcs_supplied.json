@@ -5,10 +5,10 @@
         "items": {
             "SUBDIR_NAME": {
                 "FILENAME" : {
-                    "bib_id": "bibliographic record id (required if available)",
-                    "sha1": "hash (required)",
+                    "bibid": "bibliographic record id (required if available)",
+                    "sha1": "hash (optional)",
                     "md5": "hash (optional)",
-                    "size": "int (required)"
+                    "size": "int (optional)"
                 }
             }
         }
