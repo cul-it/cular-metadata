@@ -44,7 +44,10 @@
         "directory": {
             "patternProperties": {
                 "^.*$": {
-                    "$ref": "#/definitions/file"
+                    "anyOf": [
+                        { "$ref": "#/definitions/file" },
+                        { "$ref": "#/definitions/directory" }
+                    ]
                 }
             }
         },
@@ -79,8 +82,7 @@
                     "items": {
                         "properties": {
                             "uri": {
-                                "type": "string",
-                                "pattern": "sfs.*/.*"
+                                "type": "string"
                             }
                         },
                         "required": ["uri"]
