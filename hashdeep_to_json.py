@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-# TODO: Right now this is for a csv that only has md5/sha1, not specifically the hashdeep format
 # but the general idea is generally there
-# TODO : make the items not an array/list anymore, because that is wrong
 # rules:
 # Mention every single file
 # EVery single file has to have an ID
 # Ask MAP and EF whether that's one field or two (bibid and itemid or identifier?)
+# TODO: consistent input, which might mean massaging hashdeep or hashmyfiles output
+#filename,size,md5,sha1
 
 
 
@@ -36,13 +36,13 @@ def main():
 
     # Column headings we should/might have:
     # filename
-    # md5
+    # size
     # sha1
     # optionally a flag for whether the BIBID is in the filename or not
 
     reader = csv.DictReader(args.inputfile)
     for row in reader:
-        hashlist[row['filename']] = (row['md5'], row['sha1'])
+        hashlist[row['filename']] = (row['size'], row['md5'], row['sha1'])
         # figure out a more elegant solution to this later
         dirs.add(os.path.split(row['filename'])[0])
         files.add(os.path.split(row['filename'])[1])
@@ -52,9 +52,10 @@ def main():
         items[d] = {}
         for f in files:
             if len(hashlist['{0}/{1}'.format(d,f)]) != 0:
-                thismd5 = hashlist['{0}/{1}'.format(d,f)][0]
-                thissha1 = hashlist['{0}/{1}'.format(d,f)][1]
-                items[d][f] = {'md5': thismd5, 'sha1': thissha1} 
+                thissize = hashlist['{0}/{1}'.format(d,f)][0]
+                thismd5 = hashlist['{0}/{1}'.format(d,f)][1]
+                thissha1 = hashlist['{0}/{1}'.format(d,f)][2]
+                items[d][f] = {'size': thissize, 'md5': thismd5, 'sha1': thissha1 } 
             
     em = {args.depcoll: {'phys_coll_id': args.physcollid,
                          'steward': args.steward,
