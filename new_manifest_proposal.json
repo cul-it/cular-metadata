@@ -17,6 +17,7 @@
         ],
         "partOf": "One and only one id of the lump this file is associated with", 
         "bibid": "bibliographic record id (required if available)",
+        "rmcmediano": "RMC media number (required if available)",
         "sha1": "hash (required)",
         "md5": "hash (optional)",
         "size": "int (required)"
