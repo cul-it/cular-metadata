@@ -1,6 +1,7 @@
 [
   {
-    "collection": "DEPOSITOR/COLLECTION",
+    "depositor": "DEPOSITOR",
+    "collection": "COLLECTION",
     "phys_coll_id": "bib|archival|other (required if available)",
     "steward": "netID (required if available)",
     "number_files": "int (required if available)",
@@ -24,7 +25,7 @@
       }
     ]
   },
-  { ... }
+  { ... each object has unique depositor/collection ... }
 ]
 
 
