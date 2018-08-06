@@ -35,7 +35,6 @@ Inside the `files` array, each object may have the following properties:
 |----------------|-------------------|-------------|
 | `filename`     | required          | Name of the file/object. MUST not contain `/` (FIXME - define other illegal chars) |
 | `path`         | required          | Path of item within package. The filepath within the package is constructed by appending the filename to the path with an appropriate path separator. |
-
 | `sha1`         | required          | SHA-1 hash of data (hex encoded using lowercase alphas, same as output from sha1sum, e.g. "021ea82f0468043e81a734b1342b1e64904672b0"). We require this for every item. |
 | `md5`          | optional          | MD5 hash of data (hex encoded using lowercase alphas, same as output from md5sum, e.g. `d41d8cd98f00b204e9800998ecf8427e`) |
 | `size`         | required          | Size of the file in bytes, an integer value. |
