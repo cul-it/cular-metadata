@@ -31,15 +31,13 @@ Inside the `files` array, each object may have the following properties:
 | Property       | Required/Optional | Description | 
 |----------------|-------------------|-------------|
 | `filename`     | required          | Name of the file/object. Q - what restrictions do we place on the name? No '/' at least? |
-| `path`         | required          | Path of item within collection |
+| `path`         | required          | Path of item within package. The filepath within the package is constructed by appending the filename to the path with an appropriate path separator. |
 | `locations`    | optional          | Specific base URI locations where this item is stored. |
-| `partOf`       | required          | One and only one id of the lump this file is associated with. Q - Need better definition! Q - Is this required? |
 | `bibid`        | optional          | Bibliographic record id this item is associated with. Rrequired if available. |
 | `rmcmediano`   | optional          | RMC media number. Required if available. Q - Can this be generalized? It seems unfortunate to have a field specific to one depositor. Are there likely to be other similar ids? |
 | `sha1`         | required          | SHA-1 hash of data (hex encoded using lowercase alphas, same as output from sha1sum, e.g. "021ea82f0468043e81a734b1342b1e64904672b0"). We require this for every item. |
 | `md5`          | optional          | MD5 hash of data (hex encoded using lowercase alphas, same as output from md5sum, e.g. `d41d8cd98f00b204e9800998ecf8427e`) |
 | `size`         | required          | Size of the file in bytes, an integer value. |
-
 
 The combination of (`depositor`,`collection`,`path`,`filename`) provides a unique identity for an item within CUL Archival Storage.
 
