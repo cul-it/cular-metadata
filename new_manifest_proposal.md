@@ -6,9 +6,8 @@ Manifest is a JSON document, at the top-level it is an array of collection objec
 
 | Property       | Required/Optional | Description | 
 |----------------|-------------------|-------------|
+| `collection_id`   | required          | The intellectual aggregation as assembled by the steward acting as depositor.  In the case of RMC entities, use Archival Collection IDs. If collection is not archival, but cataloged, use BibID. Must be provided if available. Q - what are formatting restrictions? Can this include `/` as in [`RMM/RMM01234` example](https://confluence.cornell.edu/display/CULREPO/Archival+Storage+Collection+Manifests)? |
 | `depositor`    | required          | The subject area designation driven off the area list and Archival units (`RMC`, `Kheel`). Letters and numbers only, must not contain a `/`. Q - is depositor the right name? |
-| `collection`   | required          | The intellectual aggregation as assembled by the steward acting as depositor.  In the case of RMC entities, use Archival Collection IDs. If collection is not archival, but cataloged, use BibID. Must be provided if available. Q - what are formatting restrictions? Can this include `/` as in [`RMM/RMM01234` example](https://confluence.cornell.edu/display/CULREPO/Archival+Storage+Collection+Manifests)?
-| `phys_coll_id` | optional          | The name of the analog collection that was the source of the Digital Collection being preserved. Take from consistent source. MARC Bib title preferred. |
 | `steward`      | optional          | The netID of the Digital Collection steward. Must be provided if available. Q - this was mandatory in the [last version](https://confluence.cornell.edu/display/CULREPO/Archival+Storage+Collection+Manifests), why not now? |
 | `number_files` | required          | The number of entries in the `files` array, allows self-checking for consistency. An integer. |
 | `locations`    | optional          | An array of base URI locations where every item in this section of the manifest is stored or to be stored. May not be present when assembling a manifest for ingest. |
