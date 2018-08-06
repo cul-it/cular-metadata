@@ -10,7 +10,7 @@ A manifest is a JSON document, at the top-level it is an array of collection obj
 |----------------|-------------------|-------------|
 | `collection_id`   | required          | The intellectual aggregation as assembled by the steward acting as depositor.  In the case of RMC entities, use Archival Collection IDs. If collection is not archival, but cataloged, use BibID. Must be provided if available. Q - what are formatting restrictions? Can this include `/` as in [`RMM/RMM01234` example](https://confluence.cornell.edu/display/CULREPO/Archival+Storage+Collection+Manifests)? |
 | `depositor`    | required          | The subject area designation driven off the area list and Archival units (`RMC`, `Kheel`). Letters and numbers only, must not contain a `/`. Q - is depositor the right name? |
-| `steward`      | optional          | The netID of the Digital Collection steward. Must be provided if available and is expected in most cases. Policy describing items without formal collection affiliation: HERE |
+| `steward`      | optional          | The netID of the Digital Collection steward. Must be provided if available and is expected in most cases. [Policy describing items without formal collection affiliation](https://confluence.cornell.edu/x/rRI2FQ) |
 | `packages` | required         | Array of package objects |
 | `number_packages` | optional         | The number of entries in the `packages` array, allows self-checking for consistency if present. An integer. |
 
