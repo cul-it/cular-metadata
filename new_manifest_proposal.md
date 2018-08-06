@@ -21,7 +21,7 @@ A manifest is a JSON document, at the top-level it is an array of collection obj
 |----------------|-------------------|-------------|
 | `package_id`   | required          | URI-like identifier for the package |
 | `locations`    | optional          | An array of base URI locations where every item in this section of the manifest is stored or to be stored. May not be present when assembling a manifest for ingest. |
-| `files`        | required          | An array of objects describing each file/object in the manifest. Q - would `items` be better if we are talking about both files on SFS and objects in S3? Then `number_files` would presumably become `number_items` too. |
+| `files`        | required          | An array of objects describing each file/object in the manifest. We use `files` even though they are `objects/resources` in some storage technologies like AWS S3. |
 | `number_files` | optional          | The number of entries in the `files` array, allows self-checking for consistency if present. An integer. |
 
 ## File properties
