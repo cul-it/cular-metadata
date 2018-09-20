@@ -1,10 +1,29 @@
 # New Archival Storage Manifest Proposal
 
-See [example manifest JSON](new_manifest_proposal.json).
+## Purpose
 
-A manifest is a JSON document, at the top-level it is an array of collection objects, each of which has one or more package objects, each of which has one or more file objects. 
+The primary purpose is to support workflows that copy packages (and the files that comprise them) around, replicate them, and verify their fixity and completeness.
 
-## Collection properties
+The secondary purpose is to enable some very basic management tasks, for which we need to know ownership/stewardship information (see `collection_id`, `depository`, `steward`) and links to external descriptions (see `bibid`, `rmcmediano`). More sophisticated management tasks will rely on other services and on descriptive and technical metadata not included in the manifest.
+
+## Descriptive and technical metadata
+
+Manifests will not include descriptive and technical metadata, this will be either:
+  
+  1. in the package (in some way that we can find by inspecting the package --> [require local standard](https://github.com/cul-it/cular-metadata/issues/13))
+  2. in a linked reference system (connected via `bibid`, `rmcmediano` and/or `package_id`)
+
+Other services (e.g. disovery, dissemination) will need to extract/access this information to understand the item type, its metadata, etc..
+
+## Access and usage rights information
+
+Manifests will not include access and usage rights information, they will link to such information via the collection level `rights` property. We expect this information to change more frequently than the packages themselves. It may be managed as a separate package, or in another system (for example, the archival collection management system is expected to be the authoritative source of such information for RMC content).
+
+## Manifest format
+
+A manifest is a JSON document. At the top-level it is an array of collection objects, each of which has one or more package objects, each of which has one or more file objects. See [example manifest JSON](new_manifest_proposal.json).
+
+### Collection properties
 
 | Property       | Required/Optional | Description | 
 |----------------|-------------------|-------------|
@@ -17,18 +36,18 @@ A manifest is a JSON document, at the top-level it is an array of collection obj
 | `number_packages` | optional         | The number of entries in the `packages` array, allows self-checking for consistency if present. An integer. |
 
 
-## Package properties
+### Package properties
 
 | Property       | Required/Optional | Description | 
 |----------------|-------------------|-------------|
-| `package_id`   | required          | URI-like identifier for the package. Must be unique within Cornell collections and is the primary key for access to packages. |
+| `package_id`   | required          | URI identifier for the package. MUST be unique within Cornell collections so that it can be used as the primary key for access to packages. Current proposal is to use UUID in URI form, e.g. `urn:uuid:f81d4fae-7dec-11d0-a765-00a0c91e6bf6` (following [RFC4122](https://tools.ietf.org/html/rfc4122) and [IANA](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml)) for all packages. [Need to validate this choice](https://github.com/cul-it/cular-metadata/issues/14) |
 | `bibid`        | optional          | Bibliographic record id this package is associated with, SHOULD be provided if available. |
 | `rmcmediano`   | optional          | RMC media number, SHOULD be provided if available. |
 | `locations`    | optional          | An array of base URI locations where every file in this package is stored or to be stored. May not be present when assembling a manifest for ingest. |
 | `files`        | required          | An array of objects describing each file/object in the manifest. We use `files` even though they are `objects/resources` in some storage technologies like AWS S3. |
 | `number_files` | optional          | The number of entries in the `files` array, allows self-checking for consistency if present. An integer. |
 
-## File properties
+### File properties
 
 Inside the `files` array, each object may have the following properties:
 
