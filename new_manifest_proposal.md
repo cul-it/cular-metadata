@@ -2,9 +2,9 @@
 
 ## Purpose
 
-The primary purpose is to support workflows that copy packages (and the files that comprise them) around, replicate them, and verify their fixity and completeness.
+The primary purpose is to support workflows that move and copy packages (and the files that comprise them), replicate them, and verify their fixity and completeness.
 
-The secondary purpose is to enable some very basic management tasks, for which we need to know ownership/stewardship information (see `collection_id`, `depository`, `steward`) and links to external descriptions (see `bibid`, `rmcmediano`). More sophisticated management tasks will rely on other services and on descriptive and technical metadata not included in the manifest.
+The secondary purpose is to enable some very basic management tasks, for which we need to know ownership/stewardship information (see `collection_id`, `depository`, `steward`), and links to external descriptions and rights information (see `bibid`, `rmcmediano`, `rights`). More sophisticated management tasks will rely on other services and on descriptive and technical metadata not included in the manifest.
 
 ## Descriptive and technical metadata
 
