@@ -49,6 +49,9 @@
                     "type": "string",
                     "pattern": "^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
                 },
+                "source_path": {
+                    "type": "string"
+                },
                 "bibid": {
                     "type": "string"
                 },
@@ -69,17 +72,13 @@
                 }
             },
             "required": [
-                "package_id",
                 "files"
             ]
         },
         "file": {
             "type": "object",
             "properties": {
-                "filename": {
-                    "type": "string"
-                },
-                "path": {
+                "filepath": {
                     "type": "string"
                 },
                 "sha1": {
@@ -95,8 +94,7 @@
                 }
             },
             "required": [
-                "filename",
-                "path",
+                "filepath",
                 "sha1",
                 "size"
             ]
