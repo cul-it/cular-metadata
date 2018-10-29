@@ -1,5 +1,5 @@
 {
-    "id": "https://github.com/cul-it/cular-metadata/blob/master/new_manifest_proposal_schema.json",
+    "id": "https://github.com/cul-it/cular-metadata/blob/master/new_manifest_proposal_schema_storage.json",
     "$schema": "http://json-schema.org/draft-06/schema#",
     "type": "object",
     "properties": {
@@ -33,8 +33,10 @@
         "collection_id",
         "depositor",
         "rights",
-        "packages"
+        "packages",
+        "number_packages"
     ],
+    "additionalProperties": false,
     "definitions": {
         "locations": {
             "type": "array",
@@ -48,9 +50,6 @@
                 "package_id": {
                     "type": "string",
                     "pattern": "^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
-                },
-                "source_path": {
-                    "type": "string"
                 },
                 "bibid": {
                     "type": "string"
@@ -72,8 +71,11 @@
                 }
             },
             "required": [
-                "files"
-            ]
+                "package_id",
+                "files",
+                "number_files"
+            ],
+            "additionalProperties": false
         },
         "file": {
             "type": "object",
@@ -97,7 +99,8 @@
                 "filepath",
                 "sha1",
                 "size"
-            ]
+            ],
+            "additionalProperties": false
         }
     }
 }
