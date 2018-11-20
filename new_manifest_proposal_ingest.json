@@ -1,0 +1,31 @@
+{
+  "collection_id": "EXAMPLE_COLLECTION_1",
+  "depositor": "DEPOSITOR",
+  "steward": "net272",
+  "rights": "archival_cms",
+  "locations": [
+    "s3://BUCKET/COLL",
+    "file://cul/data/archival03"
+  ],
+  "number_packages": 1,
+  "packages": [
+    {
+      "package_id": "urn:uuid:f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
+      "source_path": "stuff/in/here",
+      "bibid": "123456",
+      "rmcmediano": "6789",
+      "number_files": 2,
+      "files": [
+        {
+          "filepath": "a_file",
+          "sha1": "058bbd836dfc8e22d57d5dc8c048f15d8aed7dc4",
+          "md5": "61a6104561744087fe62e7878948d9b7",
+          "size": 12
+        },
+        {
+          "filepath": "foo/bar.xml"
+        }
+      ]
+    }
+  ]
+}
