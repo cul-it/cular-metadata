@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# NOTE As of Nov 2018, this will be phased out to support the new json format!!!
+
 # but the general idea is generally there
 # rules:
 # Mention every single file
