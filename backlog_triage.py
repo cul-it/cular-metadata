@@ -9,8 +9,8 @@ RMCPREFIX = 'RM*' # FIND AND REPLACE OKGO
 ##### ASSETS SECTION #################
 af = {}
 assetdir = Path('.')
+ac = defaultdict(lambda: 0)
 for adir in assetdir.glob('RM*'):
-    ac = defaultdict(lambda: 0)
     for fl in adir.glob('RM*'):
         bl = fl.name
         af[bl] = [fl]
