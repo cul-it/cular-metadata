@@ -1,4 +1,4 @@
-# New Archival Storage Manifest Proposal
+# Cornell University Library Archival Repository Storage Manifest Specification
 
 ## Purpose
 
