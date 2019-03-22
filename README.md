@@ -21,7 +21,7 @@ Manifests will not include access and usage rights information, they will link t
 
 ## Manifest format
 
-A manifest is a JSON document. At the top-level it is an array of collection objects, each of which has one or more package objects, each of which has one or more file objects. See [example manifest JSON for ingest](new_manifest_proposal_ingest.json) and [example manifest JSON for storage](new_manifest_proposal_storage.json).
+A manifest is a JSON document. At the top-level it is an array of collection objects, each of which has one or more package objects, each of which has one or more file objects. See [example manifest JSON for ingest](manifest_ingest.json) and [example manifest JSON for storage](manifest_storage.json).
 
 ### Collection properties
 
