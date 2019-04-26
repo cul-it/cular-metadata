@@ -56,7 +56,7 @@
                 "bibid": {
                     "type": "string"
                 },
-                "rmcmediano": {
+                "local_id": {
                     "type": "string"
                 },
                 "locations": {
@@ -74,7 +74,8 @@
             },
             "required": [
                 "source_path",
-                "files"
+                "files",
+		"package_id"
             ],
             "additionalProperties": false
         },

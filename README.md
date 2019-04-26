@@ -40,10 +40,10 @@ A manifest is a JSON document. At the top-level it is an array of collection obj
 
 | Property       | Required/Optional for Ingest | Required/Optional for Storage | Description | 
 |----------------|------------------------------|-------------------------------|-------------|
-| `package_id`   | optional          | required          | URI identifier for the package. MUST be unique within Cornell collections so that it can be used as the primary key for access to packages. Current proposal is to use UUID in URI form, e.g. `urn:uuid:f81d4fae-7dec-11d0-a765-00a0c91e6bf6` (following [RFC4122](https://tools.ietf.org/html/rfc4122) and [IANA](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml)) for all packages. If no `package_id` is supplied for ingest then a new UUID will be generated and recorded |
+| `package_id`   | required          | required          | URI identifier for the package. MUST be unique within Cornell collections so that it can be used as the primary key for access to packages. Current proposal is to use UUID in URI form, e.g. `urn:uuid:f81d4fae-7dec-11d0-a765-00a0c91e6bf6` (following [RFC4122](https://tools.ietf.org/html/rfc4122) and [IANA](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml)) for all packages. |
 | `source_path`  | required          | not-allowed       | Location of package files in source data. This path will be deleted after ingest because the long-term storage location will be based on the `package_id` |
 | `bibid`        | optional          | optional          | Bibliographic record id this package is associated with, SHOULD be provided if available. |
-| `rmcmediano`   | optional          | optional          | RMC media number, SHOULD be provided if available. |
+| `local_id`   | optional          | optional            | Physical item identifier, SHOULD be provided if available. |
 | `locations`    | optional          | optional          | An array of base URI locations where every file in this package is stored or to be stored. May not be present when assembling a manifest for ingest. |
 | `files`        | required          | required          | An array of objects describing each file/object in the manifest. We use `files` even though they are `objects/resources` in some storage technologies like AWS S3. |
 | `number_files` | optional          | required          | The number of entries in the `files` array, allows self-checking for consistency if present. An integer. If not present for ingest, will be filled in before storage |
