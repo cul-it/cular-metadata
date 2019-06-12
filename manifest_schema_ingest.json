@@ -1,5 +1,5 @@
 {
-    "id": "https://github.com/cul-it/cular-metadata/blob/master/new_manifest_proposal_schema_ingest.json",
+    "id": "https://github.com/cul-it/cular-metadata/blob/master/manifest_schema_ingest.json",
     "$schema": "http://json-schema.org/draft-06/schema#",
     "type": "object",
     "properties": {
@@ -13,7 +13,7 @@
             "type": "string",
             "pattern": "^[a-zA-Z]{1,4}[0-9]{1,6}$"
         },
-        "rights": {
+        "documentation": {
             "type": "string"
         },
         "locations": {
@@ -32,7 +32,7 @@
     "required": [
         "collection_id",
         "depositor",
-        "rights",
+        "documentation",
         "packages"
     ],
     "additionalProperties": false,

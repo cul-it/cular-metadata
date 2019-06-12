@@ -2,7 +2,7 @@
   "collection_id": "EXAMPLE_COLLECTION_1",
   "depositor": "DEPOSITOR",
   "steward": "net272",
-  "rights": "archival_cms",
+  "documentation": "cular:1330443",
   "locations": [
     "s3://BUCKET/COLL",
     "file://cul/data/archival03"
