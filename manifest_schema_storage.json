@@ -54,6 +54,9 @@
                 "bibid": {
                     "type": "string"
                 },
+                "local_id": {
+                    "type": "string"
+                },
                 "rmcmediano": {
                     "type": "string"
                 },
