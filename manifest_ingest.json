@@ -3,15 +3,11 @@
   "depositor": "DEPOSITOR",
   "steward": "net272",
   "documentation": "cular:1330443",
-  "locations": [
-    "s3://BUCKET/COLL",
-    "file://cul/data/archival03"
-  ],
   "number_packages": 1,
   "packages": [
     {
       "package_id": "urn:uuid:f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
-      "source_path": "stuff/in/here",
+      "source_path": "",
       "bibid": "123456",
       "local_id": "31924",
       "number_files": 2,
