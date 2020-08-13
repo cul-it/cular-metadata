@@ -58,6 +58,6 @@ Inside the `files` array, each object may have the following properties:
 | `sha1`         | optional          | required          | SHA-1 hash of data (hex encoded using lowercase alphas, same as output from `sha1sum`, e.g. `021ea82f0468043e81a734b1342b1e64904672b0`). We require this for every item. If not present for ingest, will be filled in before storage |
 | `md5`          | optional          | optional          | MD5 hash of data (hex encoded using lowercase alphas, same as output from `md5sum`, e.g. `d41d8cd98f00b204e9800998ecf8427e`). May or may not be present on ingest, will be retained if present |
 | `size`         | optional          | required          | Size of the file in bytes, an integer value. If not present for ingest, will be filled in before storage |
-| `ingest_date`  | not-allowed       | required          | Date of ingest of the file. |
+| `ingest_date`  | not-allowed       | required          | Date of ingest of the file |
 
 For any package, the set of locations where it is stored is determined by the union of the set of `locations` for the collection and the set of `locations` for the specific package.
