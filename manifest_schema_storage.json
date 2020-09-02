@@ -96,12 +96,17 @@
                 },
                 "size": {
                     "type": "integer"
+                },
+                "ingest_date": {
+                    "type": "string",
+                    "pattern": "^[0-9-]{10}$"
                 }
             },
             "required": [
                 "filepath",
                 "sha1",
-                "size"
+                "size",
+                "ingest_date"
             ],
             "additionalProperties": false
         }
