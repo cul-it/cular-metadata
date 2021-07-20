@@ -1,5 +1,5 @@
 {
-    "id": "https://github.com/cul-it/cular-metadata/blob/master/manifest_schema_ingest.json",
+    "$id": "https://github.com/cul-it/cular-metadata/blob/main/manifest_schema_ingest.json",
     "$schema": "http://json-schema.org/draft-06/schema#",
     "type": "object",
     "properties": {

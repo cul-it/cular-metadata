@@ -1,5 +1,5 @@
 {
-    "id": "https://github.com/cul-it/cular-metadata/blob/master/manifest_schema_storage.json",
+    "$id": "https://github.com/cul-it/cular-metadata/blob/main/manifest_schema_storage.json",
     "$schema": "http://json-schema.org/draft-06/schema#",
     "type": "object",
     "properties": {
@@ -55,9 +55,6 @@
                     "type": "string"
                 },
                 "local_id": {
-                    "type": "string"
-                },
-                "rmcmediano": {
                     "type": "string"
                 },
                 "locations": {
