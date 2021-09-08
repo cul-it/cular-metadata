@@ -97,15 +97,37 @@
                 "ingest_date": {
                     "type": "string",
                     "pattern": "^[0-9-]{10}$"
+                },
+                "filetype": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/filetype"
+                    }
                 }
             },
             "required": [
                 "filepath",
                 "sha1",
                 "size",
-                "ingest_date"
+                "ingest_date",
+                "filetype"
             ],
             "additionalProperties": false
-        }
+        },
+        "filetype": {
+            "type": "object",
+            "properties": {
+                "id_tool": {
+                    "type": "string"
+                },
+                "media_type": {
+                    "type": "string"
+                }
+            }
+        },
+        "required": [
+            "id_tool",
+            "media_type"
+        ]
     }
 }

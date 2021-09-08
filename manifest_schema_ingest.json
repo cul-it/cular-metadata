@@ -16,9 +16,6 @@
         "documentation": {
             "type": "string"
         },
-        "locations": {
-            "$ref": "#/definitions/locations"
-        },
         "packages": {
             "type": "array",
             "items": {
@@ -37,12 +34,6 @@
     ],
     "additionalProperties": false,
     "definitions": {
-        "locations": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            }
-        },
         "package": {
             "type": "object",
             "properties": {
@@ -50,17 +41,11 @@
                     "type": "string",
                     "pattern": "^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
                 },
-                "source_path": {
-                    "type": "string"
-                },
                 "bibid": {
                     "type": "string"
                 },
                 "local_id": {
                     "type": "string"
-                },
-                "locations": {
-                    "$ref": "#/definitions/locations"
                 },
                 "files": {
                     "type": "array",
@@ -73,7 +58,6 @@
                 }
             },
             "required": [
-                "source_path",
                 "files",
 		"package_id"
             ],

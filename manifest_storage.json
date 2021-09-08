@@ -20,14 +20,22 @@
           "sha1": "058bbd836dfc8e22d57d5dc8c048f15d8aed7dc4",
           "md5": "61a6104561744087fe62e7878948d9b7",
           "size": 12,
-          "ingest_date": "2020-08-13"
+          "ingest_date": "2020-08-13",
+          "filetype": [
+             { "id_tool" : "tika-2.1.0",
+               "media_type" : "text/plain" }
+        ]
         },
         {
           "filepath": "foo/bar.xml",
           "sha1": "2c789aee68c6803b0a45f1627a368a0af9785223",
           "md5": "5f859ade8cffd1a94543f4f660ab1b99",
           "size": 68,
-          "ingest_date": "2020-03-16"
+          "ingest_date": "2020-03-16",
+          "filetype" : [
+             { "id_tool" : "tika-2.1.0",
+               "media_type" : "text/xml" }
+        ]
         }
       ]
     }
