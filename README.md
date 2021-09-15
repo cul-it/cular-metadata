@@ -38,7 +38,7 @@ A manifest is a JSON document. At the top-level it is an array of collection obj
 
 ### Package properties
 
-Each object in the `packages` array may be the following properties:
+Each object in the `packages` array may have the following properties:
 
 | Property       | Required/Optional for Ingest | Required/Optional for Storage | Description | 
 |----------------|------------------------------|-------------------------------|-------------|
@@ -60,15 +60,5 @@ Each object in the `files` array may have the following properties:
 | `md5`          | optional          | optional          | MD5 hash of data (hex encoded using lowercase alphas, same as output from `md5sum`, e.g. `d41d8cd98f00b204e9800998ecf8427e`). May or may not be present on ingest, will be verified and retained if present |
 | `size`         | optional          | required          | Size of the file in bytes, an integer value. If not present for ingest, will be filled in before storage |
 | `ingest_date`  | not-allowed       | required          | Date of ingest of the file |
-| `filetype`     | not-allowed       | required          | An array supplying file identification information for each file object.|
-
-### Filetype properties
-
-Each object in the `filetype` array may have the following properties:
-| Property       | Required/Optional for Ingest | Required/Optional for Storage | Description | 
-|----------------|------------------------------|-------------------------------|-------------|
-| `id_tool`      | not-allowed  | required | The name and version of the tool supplying the MIME/Media Type for the file|
-| `media_type`   | not-allowed | required | The Media Type (MIME Type) of the file, as determined by the tool referenced in `id_tool` |
-
-
-For any package, the set of locations where it is stored is determined by the union of the set of `locations` for the collection and the set of `locations` for the specific package.
+| `tool_version` | not-allowed       | required          | String representing the tool and version of the file identification utility run (e.g., `tika-2.1.0`) |
+| `media_type`   | not-allowed       | required          | The media type of the file referenced by `filepath` using the tool referenced in `tool_version` |

@@ -98,11 +98,11 @@
                     "type": "string",
                     "pattern": "^[0-9-]{10}$"
                 },
-                "filetype": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/filetype"
-                    }
+                "tool_version": {
+                    "type": "string"
+                },
+                "media_type": {
+                    "type": "string"
                 }
             },
             "required": [
@@ -110,24 +110,10 @@
                 "sha1",
                 "size",
                 "ingest_date",
-                "filetype"
+                "tool_version",
+                "media_type"
             ],
             "additionalProperties": false
         },
-        "filetype": {
-            "type": "object",
-            "properties": {
-                "id_tool": {
-                    "type": "string"
-                },
-                "media_type": {
-                    "type": "string"
-                }
-            }
-        },
-        "required": [
-            "id_tool",
-            "media_type"
-        ]
     }
 }

@@ -21,10 +21,8 @@
           "md5": "61a6104561744087fe62e7878948d9b7",
           "size": 12,
           "ingest_date": "2020-08-13",
-          "filetype": [
-             { "id_tool" : "tika-2.1.0",
-               "media_type" : "text/plain" }
-        ]
+          "tool_version": "tika-2.1.0",
+          "media_type": "text/plain" 
         },
         {
           "filepath": "foo/bar.xml",
@@ -32,10 +30,8 @@
           "md5": "5f859ade8cffd1a94543f4f660ab1b99",
           "size": 68,
           "ingest_date": "2020-03-16",
-          "filetype" : [
-             { "id_tool" : "tika-2.1.0",
-               "media_type" : "text/xml" }
-        ]
+          "tool_version": "tika-2.1.0",
+          "media_type": "text/xml"
         }
       ]
     }
