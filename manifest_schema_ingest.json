@@ -62,7 +62,8 @@
             },
             "required": [
                 "files",
-		"package_id"
+		"package_id",
+                "source_path"
             ],
             "additionalProperties": false
         },
