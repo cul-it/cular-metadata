@@ -97,15 +97,23 @@
                 "ingest_date": {
                     "type": "string",
                     "pattern": "^[0-9-]{10}$"
+                },
+                "tool_version": {
+                    "type": "string"
+                },
+                "media_type": {
+                    "type": "string"
                 }
             },
             "required": [
                 "filepath",
                 "sha1",
                 "size",
-                "ingest_date"
+                "ingest_date",
+                "tool_version",
+                "media_type"
             ],
             "additionalProperties": false
-        }
+        },
     }
 }
