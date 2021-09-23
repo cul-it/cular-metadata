@@ -31,7 +31,7 @@ A manifest is a JSON document. At the top-level it is an array of collection obj
 | `depositor`       | required          | required          | The subject area designation driven off the area list and Archival units (`RMC/RMM`, `RMC/RMA`, `Kheel`, `ILR`, `Music`, etc). |
 | `steward`         | required          | required          | The netID of the Digital Collection steward. |
 | `documentation`          | required          | required          | A pointer to where to find collection-level documentation (i.e., CULAR PID). |
-| `locations`       | not-allowed             | required             | An array of base URI locations where every package described in this manifest in this collection is stored or to be stored. There may be additional `locations` specified at the package level. Specification at the collection level is essentially a short-hand to avoid repetition for every package.|
+| `locations`       | not-allowed             | required             | An array of base URI locations where every package described in this manifest in this collection is stored or to be stored.|
 | `packages`        | required         | required            | Array of package objects |
 | `number_packages` | optional         | required            | The number of entries in the `packages` array, allows self-checking for consistency if present. An integer. If not present for ingest, will be filled in before storage |
 
@@ -44,7 +44,7 @@ Each object in the `packages` array may have the following properties:
 |----------------|------------------------------|-------------------------------|-------------|
 | `package_id`   | required          | required          | URI identifier for the package. MUST be unique within Cornell collections so that it can be used as the primary key for access to packages. Use UUID in URI form, e.g. `urn:uuid:f81d4fae-7dec-11d0-a765-00a0c91e6bf6` (following [RFC4122](https://tools.ietf.org/html/rfc4122) and [IANA](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml)) for all packages. |
 | `source_path`  | required         | not-allowed       | Must be left blank in ingest manifest and is used by ingest code. Value not retained in storage manifest. |
-| `bibid`        | optional          | optional          | Bibliographic record id this package is associated with, SHOULD be provided if available. (Note that this value is intended for identifying the bibliographic record of the assets specific to this package, rather than for the collection as a whole. Records identified in MARC as collection records are highly discouraged at this level.) |
+| `bibid`        | optional          | optional          | Bibliographic record id this package is associated with, SHOULD be provided if available. (Note that this value is intended for identifying the bibliographic record of the assets specific to this package, rather than for the collection as a whole.) |
 | `local_id`   | optional          | optional            | Physical item identifier, SHOULD be provided by depositor, if available. |
 | `files`        | required          | required          | An array of objects describing each file/object in the manifest. We use `files` even though they are `objects/resources` in some storage technologies like AWS S3. |
 | `number_files` | optional          | required          | The number of entries in the `files` array, allows self-checking for consistency if present. An integer. If not present for ingest, will be filled in before storage |
