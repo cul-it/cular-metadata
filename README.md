@@ -21,11 +21,15 @@ Manifests will not include access and usage rights information, they will link t
 
 ## Manifest format
 
-A manifest is a JSON document. At the top-level it is an array of collection objects, each of which has one or more package objects, each of which has one or more file objects. See [example manifest JSON for ingest](manifest_ingest.json) and [example manifest JSON for storage](manifest_storage.json).
+A manifest is a JSON document which includes specific details at the collection, package, and item level for digital asssets deposited into CULAR. At the top-level it is an array of collection objects, each of which has one or more package objects, each of which has one or more file objects.
+
+There are two distinct versions of the manifest which correspond to stages in the deposit process. An "ingest manifest" is prepared prior to a collection's deposit into CULAR; the requirements for this version of the manifest is detailed in the column labeled "Ingest Requirements" in the table below. The "ingest manifest" is supplemented with additional information and retained as the "storage manifest", and its requirements are detailed in the column labeled "Storage Requirements" in the table below.
+
+For examples, see [example manifest JSON for ingest](manifest_ingest.json) and [example manifest JSON for storage](manifest_storage.json).
 
 ### Collection properties
 
-| Property       | Required/Optional for Ingest | Required/Optional for Storage | Description | 
+| Property       | Ingest Requirements | Storage Requirements | Description | 
 |----------------|------------------------------|-------------------------------|-------------|
 | `collection_id`   | required          | required          | The intellectual aggregation as assembled by the steward acting as depositor.  In the case of RMC entities, use Archival Collection IDs. If collection is not archival, but cataloged, use BibID. Must be provided if available. Examples: `RMM06885` (Bolivian Pamphlets), `RMA03590` (Cornell Hockey Films), `5780-156` (Kheel). Primarily letters and numbers, case sensitive, may contain a space, dash or underscore, must not contain a `/`. |
 | `depositor`       | required          | required          | The subject area designation driven off the area list and Archival units (`RMC/RMM`, `RMC/RMA`, `Kheel`, `ILR`, `Music`, etc). |
