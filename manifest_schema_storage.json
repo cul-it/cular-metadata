@@ -41,7 +41,8 @@
         "locations": {
             "type": "array",
             "items": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^s3://.+|^smb://files.cornell.edu/lib/.+"
             }
         },
         "package": {
@@ -114,6 +115,6 @@
                 "media_type"
             ],
             "additionalProperties": false
-        },
+        }
     }
 }
