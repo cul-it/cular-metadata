@@ -43,7 +43,7 @@
                 },
                 "source_path": {
                     "type": "string",
-                    "pattern": "^$"
+                    "maxLength": 0
                 },
                 "bibid": {
                     "type": "string"
