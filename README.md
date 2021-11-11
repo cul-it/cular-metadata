@@ -67,5 +67,5 @@ Each object in the `files` array may have the following properties:
 | `md5`          | optional          | optional          | MD5 hash of data (hex encoded using lowercase alphas, same as output from `md5sum`, e.g. `d41d8cd98f00b204e9800998ecf8427e`). May or may not be present on ingest, will be verified and retained if present |
 | `size`         | optional          | required          | Size of the file in bytes, an integer value. If not present for ingest, will be calculated by ingest code. |
 | `ingest_date`  | not-allowed       | required          | Date of ingest of the file. |
-| `tool_version` | not-allowed       | required          | String representing the tool and version of the file identification utility run. (e.g., `tika-2.1.0`) |
-| `media_type`   | not-allowed       | required          | The media type of the file referenced by `filepath` using the tool referenced in `tool_version`. |
+| `tool_version` | required       | required          | Must be left blank in ingest manifest. String representing the tool and version of the file identification utility run. (e.g., `tika-2.1.0`) |
+| `media_type`   | required       | required          | Must be left blank in ingest manifest. The media type of the file referenced by `filepath` using the tool referenced in `tool_version`. |
