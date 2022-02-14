@@ -2,70 +2,118 @@
 
 ## Purpose
 
-The primary purpose is to support workflows that move and copy packages (and the files that comprise them), replicate them, and verify their fixity and completeness.
+The CULAR manifest specification primarily supports workflows that verify the fixity and completeness of packages (and the files that comprise them) within collections: `filepath`, `sha1`, `md5`, `size`, `number_files`, `number_packages`
 
-The secondary purpose is to enable some very basic management tasks, for which we need to know ownership/stewardship information (see `collection_id`, `depository`, `steward`), links to system identifiers and collection documentation (see `bibid`, `local_id`, `documentation`), and basic file information (see `size`, `ingest_date`, `filetype`). More sophisticated management tasks will rely on other services and on descriptive and technical metadata not included in the manifest.
+The manifest also enables select management tasks; data from the manifest is aggregated and stored in an administrative system to support collection-, depositor-, and system-wide querying.
 
-## Descriptive and technical metadata
+At the collection level, this includes:
+* Identification of collection in both CULAR and other library systems: `collection_id`, `collection_ref_bibid`, `collection_ref_aspace`
+* Storage locations for packages in the collection: `locations`
+* Pointer to collection documentation (i.e., non-asset) packages: `documentation`
+* Identification of key roles for the collection, including depositor, stewardship, and technical administrative responsibility: `depositor`, `collection_steward`, `depositor_admin`
 
-Manifests will not include descriptive and certain technical metadata, this will be either:
-  
-  1. in the package (in some way that we can find by inspecting the package --> [require local standard](https://github.com/cul-it/cular-metadata/issues/13))
-  2. in a linked reference system (connected via `bibid`, `local_id` and/or `package_id`)
-
-Other services (e.g. disovery, dissemination) will need to extract/access this information to understand more extensive item and file metadata.
-
-## Access and usage rights information
-
-Manifests will not include access and usage rights information, they will link to such information via the collection level `documentation` property. At this point, we are not providing machine-actionable, item-level or package-level rights information for collection assets. 
-
-## Manifest format
-
-A manifest is a JSON document which includes specific details at the collection, package, and item level for digital asssets deposited into CULAR. At the top-level it is an array of collection objects, each of which has one or more package objects, each of which has one or more file objects.
-
-The manifest is created in two stages. The first stage, the "ingest manifest" lists all of the files being furnished; optionally, fixity information for those files; how files are arranged into packages; and basic collection identification information. At this stage, the CULAR application ensure that all the files in the source directory are referenced in the "ingest manifest", only the files referenced in the "ingest manifest" exist in the source directory, and updates the `source_path` field so that the absolute path for each file can be determined for transfer. The requirements for this stage of the manifest are listed in the table below, under the column labeled "Ingest Requirements".
-
-The CULAR application generates a "storage manifest" from the "ingest manifest" after the ingest (transfer, fixity check) is complete. For each file referenced in the "ingest manifest", the "storage manifest" populates the `ingest_date`, `tool_version`, and `media_type`. For new collections, the `location` field is added; for existing collections, the `location` field is appended to when appropriate. Any field listed as optional or not-allowed under "Ingest Requirements" and required under "Storage Requirements" will be filled in during this stage. The requirements for the "storage manifest" are listed in the table below, under the column labeled "Storage Requirements". 
-
-For examples, see [example manifest JSON for ingest](manifest_ingest.json) and [example manifest JSON for storage](manifest_storage.json).
-
-### Collection properties
-
-| Property       | Ingest Requirements | Storage Requirements | Description | 
-|----------------|------------------------------|-------------------------------|-------------|
-| `collection_id`   | required          | required          | The intellectual aggregation as assembled by the steward acting as depositor.  In the case of RMC entities, use Archival Collection IDs. If collection is not archival, but cataloged, use BibID. Must be provided if available. Examples: `RMM06885` (Bolivian Pamphlets), `RMA03590` (Cornell Hockey Films), `5780-156` (Kheel). Primarily letters and numbers, case sensitive, may contain a space, dash or underscore, must not contain a `/`. |
-| `depositor`       | required          | required          | The subject area designation driven off the area list and Archival units (`RMC/RMM`, `RMC/RMA`, `Kheel`, `ILR`, `Music`, etc). |
-| `steward`         | required          | required          | The netID of the Digital Collection steward. String must match netID pattern. |
-| `documentation`          | required          | required          | A pointer to where to find collection-level documentation (i.e., CULAR PID). |
-| `locations`       | not-allowed             | required             | An array of base URI locations where every package described in this manifest in this collection is stored or to be stored.|
-| `packages`        | required         | required            | Array of package objects |
-| `number_packages` | optional         | required            | The number of entries in the `packages` array, allows self-checking for consistency if present. An integer. |
+At the package level, this includes:
+* The unique identification of the package within the CULAR system: `package_id`
+* Identifiers that link the package to descriptive, administrative, and/or technical metadata in other library systems: `package_ref_bibid`, `package_ref_barcode`, `package_ref_medianum`
 
 
-### Package properties
+At the file level, this includes:
+* The date the file within the package was ingested into the CULAR system: `ingest_date`
+* Basic file identification for the file in the package: `media_type`, `tool_version`
 
-Each object in the `packages` array may have the following properties:
+### Not Included
 
-| Property       | Required/Optional for Ingest | Required/Optional for Storage | Description | 
-|----------------|------------------------------|-------------------------------|-------------|
-| `package_id`   | required          | required          | URI identifier for the package. MUST be unique within Cornell collections so that it can be used as the primary key for access to packages. Use UUID in URI form, e.g. `urn:uuid:f81d4fae-7dec-11d0-a765-00a0c91e6bf6` (following [RFC4122](https://tools.ietf.org/html/rfc4122) and [IANA](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml)) for all packages. |
-| `source_path`  | required         | not-allowed       | Must be left blank in ingest manifest and is used by ingest code. Value not retained in storage manifest. |
-| `bibid`        | optional          | optional          | Bibliographic record id this package is associated with, SHOULD be provided if available. (Note that this value is intended for identifying the bibliographic record of the assets specific to this package, rather than for the collection as a whole.) |
-| `local_id`   | optional          | optional            | Physical item identifier, SHOULD be provided by depositor, if available. |
-| `files`        | required          | required          | An array of objects describing each file/object in the manifest. We use `files` even though they are `objects/resources` in some storage technologies like AWS S3. |
-| `number_files` | optional          | required          | The number of entries in the `files` array, allows self-checking for consistency if present. An integer.|
+The CULAR manifest itself does not include any descriptive metadata, access, or usage rights information.
+
+This information will either be found in the collection level documentation, exist in the package (in some way that we can find by inspecting the package --> [require local standard](https://github.com/cul-it/cular-metadata/issues/13)), or linked through the system identifiers listed above.
+
+## Manifest Specification
+
+### A note about the manifest workflow
+
+The manifest is created in two stages. The first stage "ingest manifest" has slightly different requirements which will be described at the end of this document. The specification below outlines the requirements for the "storage manifest", which populates the CULAR administrative interface (AS-IF).
+
+### Collection
+
+| Property  | Requirements | Description | JSON Data Type |
+| -- | -- | -- | -- |
+| `collection_id` | required | The intellectual aggregation as assembled by the collection steward and/or depositor manager. This name is typically human-readable, with underscores in place of spaces. | string |
+| `collection_ref_bibid` | required | The collection-level BibID assigned to the collection. For `MultiSteward/Items`, it will be assigned the value "N/A". | string |
+| `collection_ref_aspace` | optional | The archival collection ID assigned to the collection (e.g., `RMM06885` or `RMA03590`.) | string |
+ | `depositor` | required | The depositor is a conceptual entity that alignes with the functional collecting areas of the library (e.g., Fine Arts, Rare and Manuscript Collections, Mann Special Collections, Music, Veterinary School, Africana, etc). The depositor will be encoded in the manifest in a consistent, agreed-upon way as designated by the CULAR admins (e.g., FineArts, RMC/RMA, RMC/RMM, MannSpecColl, Music, Vet, Africana, etc). |
+ | `depositor_admin` | optional | A depositor may identify an individual who provides technical and administrative management of all of the collections under its purview. If identified, this value stores the netid of the individual in this role. | string (must match netID pattern) |
+ | `collection_steward` | required | The collection steward provides information and consultation about the content of the collection. This value stores the netid of the individual in this role. | string (must match netID pattern) |
+ | `documentation` | required | The CULAR PID of the package that contains collection-level documentation. | string |
+ | `locations` | An array of base URI locations where every package in this manifest is stored. | array |
+ | `number_pacakges` | required | The number of entries in the `packages` array; allows self-checking for consistency if present. | integer |
+ | `packages` | required | An array of package objects (see Package properties, below). | array |
+ 
+
+### Package
+
+The following defines the package object properties:
+
+| Property | Requirements | Description | JSON Data Type |
+| -- | -- | -- | -- |
+| `package_id` | required | Unique URI identifier for the package. Use UUID in URI form, e.g., `urn:uuid:f81d4fae-7dec-11d0-a765-00a0c91e6bf6` (following [RFC4122](https://tools.ietf.org/html/rfc4122) and [IANA](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml)) for all packages. | string |
+| `package_ref_bibid` | optional | Bibliographic record ID this package is associated with, which should be provided if available. (Note that this is not the BibID for the collection as a whole.) | string |
+| `package_ref_barcode` | optional | Barcode assigned to the physical manifestation or the physical media carrier of the assets referenced in this package, which should be provided if available. | string |
+| `package_ref_medianum` | optional | Media Number assigned to the physical manifestation or the physical media carrier of the assets referenced in this package, which should be provided if available. (Note that this field is primarily associated with the "RMC Media Number".) | string |
+| `number_files` | The number of entries in the `files` array, allows self checking for consistency of present. | integer |
+| `files` | required | An array of file objects describing each file/object in the manifest. We use `files` even though they are `objects/resources` in some storage technologies. | array | 
+
+### File
+
+The following defines the file object properties:
+
+| Property | Requirements | Description | JSON Data Type |
+| -- | -- | -- | -- |
+| `filepath` | required | Path and filename of the file within the package. The `/` character MUST be used as a path separator (not `\` as it is used on Windows systems). Following [BagIt](https://datatracker.ietf.org/doc/html/rfc8493), if a `filepath` includes a Line Feed (LF), a Carriage Return (CR), a Carriage-Return Line Feed (CRLF), or a percent sign (%), those characters (and only those) MUST be percent-encoded following [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986/). | string | 
+| `sha1` | required | SHA-1 hash of data (hex encoded using lowercase alphas, same as output from `sha1sum`, e.g. `021ea82f0468043e81a734b1342b1e64904672b0`). | string |
+| `md5` | optional | MD5 hash of data (hex encoded using lowercase alphas, same as output from `md5sum`, e.g. `d41d8cd98f00b204e9800998ecf8427e`), only present if furnished at ingest. | string | 
+| `size` | required | Size of the file in bytes. | integer |
+| `ingest_date` | Date of ingest of the file, expressed as YYYY-MM-DD. | string | 
+| `tool_version` | required | String representation of the tool and version of the file identification utility run (e.g., `tika-2.1.0`). | string | 
+| `media_type`   | required | The media type of the file referenced by `filepath` using the tool referenced in `tool_version`. | string |
 
 
-### File properties
+## Manifest Workflow
 
-Each object in the `files` array may have the following properties:
+Since the manifest is generated in two stages, there are slightly different requirements for the first stage "ingest manifest" that is supplied for the initial stages of the ingest workflow. Note that some fields required in the "ingest manifest" are not allowed once the deposit has completed and the "storage manifest" has been generated. 
 
-| Property       | Required/Optional for Ingest | Required/Optional for Storage | Description | 
-|----------------|------------------------------|-------------------------------|-------------|
-| `filepath`     | required          | required          | Path and filename of the file within the package. The character `/` MUST be used as a path separator (not `\` as is used on Windows systems). Following Bagit, if a `filepath` includes a Line Feed (LF), a Carriage Return (CR), a Carriage-Return Line Feed (CRLF), or a percent sign (%), those characters (and only those) MUST be percent-encoded following [RFC3986] |
-| `sha1`         | optional          | required          | SHA-1 hash of data (hex encoded using lowercase alphas, same as output from `sha1sum`, e.g. `021ea82f0468043e81a734b1342b1e64904672b0`). If present for ingest, it will be verified; otherwise it will be calculated by ingest code. |
-| `md5`          | optional          | optional          | MD5 hash of data (hex encoded using lowercase alphas, same as output from `md5sum`, e.g. `d41d8cd98f00b204e9800998ecf8427e`). May or may not be present on ingest, will be verified and retained if present |
-| `size`         | optional          | required          | Size of the file in bytes, an integer value. If not present for ingest, will be calculated by ingest code. |
-| `ingest_date`  | not-allowed       | required          | Date of ingest of the file. |
-| `tool_version` | required       | required          | Must be left blank in ingest manifest. String representing the tool and version of the file identification utility run. (e.g., `tika-2.1.0`) |
-| `media_type`   | required       | required          | Must be left blank in ingest manifest. The media type of the file referenced by `filepath` using the tool referenced in `tool_version`. |
+The "ingest manifest" provides detail for what is being furnished for deposit: what files are included, how files are arranged into packages, optional fixity information, and collection metadata. The CULAR application ensures that all files in the source directory are referenced in the "ingest manifest", and only the files referenced in the "ingest manifest" exist in the source directory. The CULAR application generates the "storage manifest" from the "ingest manifest" after the ingest (transfer, fixity check) is complete. For each file referenced in the "ingest manifest", the "storage manifest" populates the `ingest_date`, `tool_version`, and `media_type`. For new collections, the `location` field is added; for existing collections, the `location` field is appended to when appropriate.
+
+### Collection (Ingest)
+
+| Property | Requirements | Description (if different from storage manifest) | JSON Data Type |
+| -- | -- | -- | -- |
+| `collection_id` | required | integer | string | 
+| `collection_ref_bibid` | required |  | string | 
+| `collection_ref_aspace` | optional |  | string | 
+| `depositor` | required |  | string | 
+| `depositor_admin` | optional |  | string |
+| `collection_steward` | required |  | string | 
+| `documentation` | required |  | string |
+| `number_pacakges` | optional |  | integer |
+| `packages` | required |  | array |
+
+### Package (Ingest)
+| Property | Requirements | Description | JSON Data Type |
+| -- | -- | -- | -- |
+| `package_id` | required |  | string |
+| `source_path` | required | The CULAR application uses this field to determine the absolute path for each file for transfer | null |
+| `package_ref_bibid` | optional |  | string |
+| `package_ref_barcode` | optional |  | string |
+| `package_ref_medianum` | optional |  | string | 
+| `number_files` | optional |  | integer |
+| `files` | required |  | array |
+
+### File (Ingest)
+| Property | Requirements | Description | JSON Data Type |
+| -- | -- | -- | -- |
+| `filepath` | required |  | string |
+| `sha1` | optional |  | string |
+| `md5` | optional |  | string |
+| `size` | optional |  | string |
+| `tool_version` | required | The CULAR application fills in this field during the ingest process | null | 
+| `media_type` | required | The CULAR application fills in this field during the ingest process | null |
