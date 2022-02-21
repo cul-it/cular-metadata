@@ -32,7 +32,7 @@ The CULAR manifests do not include any descriptive metadata, access, or usage ri
 | `collection_id` | required | The CULAR identifier that is associated with this package. |
 | `package_locations` | required | An array of base URI locations where this package is stored. | 
 | `package_id` | required | Unique URI identifier for the package. Use UUID in URI form, e.g., `urn:uuid:f81d4fae-7dec-11d0-a765-00a0c91e6bf6` (following [RFC4122](https://tools.ietf.org/html/rfc4122) and [IANA](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml)) for all packages. | string |
-| `package_physical_media_type` | optional | For items digitized or copied from a physical media object. Uses controlled vocabulary. |
+| `physical_media_type` | optional | For items digitized or copied from a physical media object. Uses controlled vocabulary. |
 | `files` | required | An array of file objects describing each file/object in the manifest. We use `files` even though they are `objects/resources` in some storage technologies. | array | 
 
 #### File Objects
