@@ -25,7 +25,7 @@ A manifest is a JSON document which includes specific details at the collection,
 
 The manifest is created in two stages. The first stage, the "ingest manifest" lists all of the files being furnished; optionally, fixity information for those files; how files are arranged into packages; and basic collection identification information. At this stage, the CULAR application ensure that all the files in the source directory are referenced in the "ingest manifest", only the files referenced in the "ingest manifest" exist in the source directory, and updates the `source_path` field so that the absolute path for each file can be determined for transfer. The requirements for this stage of the manifest are listed in the table below, under the column labeled "Ingest Requirements".
 
-The CULAR application generates a "storage manifest" from the "ingest manifest" after the ingest (transfer, fixity check) is complete. For each file referenced in the "ingest manifest", the "storage manifest" populates the `ingest_date`, `tool_version`, and `media_type`. For new collections, the `location` field is added; for existing collections, the `location` field is appended to when appropriate. Any field listed as optional or not-allowed under "Ingest Requirements" and required under "Storage Requirements" will be filled in during this stage. The requirements for the "storage manifest" are listed in the table below, under the column labeled "Storage Requirements". 
+The CULAR application generates a "storage manifest" from the "ingest manifest" after the ingest (transfer, fixity check) is complete. For each file referenced in the "ingest manifest", the "storage manifest" populates the `ingest_date`, `tool_version`, and `media_type`. Any field listed as optional or not-allowed under "Ingest Requirements" and required under "Storage Requirements" will be filled in during this stage. The requirements for the "storage manifest" are listed in the table below, under the column labeled "Storage Requirements". 
 
 For examples, see [example manifest JSON for ingest](manifest_ingest.json) and [example manifest JSON for storage](manifest_storage.json).
 
@@ -37,7 +37,6 @@ For examples, see [example manifest JSON for ingest](manifest_ingest.json) and [
 | `depositor`       | required          | required          | The subject area designation driven off the area list and Archival units (`RMC/RMM`, `RMC/RMA`, `Kheel`, `ILR`, `Music`, etc). |
 | `steward`         | required          | required          | The netID of the Digital Collection steward. String must match netID pattern. |
 | `documentation`          | required          | required          | A pointer to where to find collection-level documentation (i.e., CULAR PID). |
-| `locations`       | not-allowed             | required             | An array of base URI locations where every package described in this manifest in this collection is stored or to be stored.|
 | `packages`        | required         | required            | Array of package objects |
 | `number_packages` | optional         | required            | The number of entries in the `packages` array, allows self-checking for consistency if present. An integer. |
 
