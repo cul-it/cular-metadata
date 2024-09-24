@@ -2,11 +2,7 @@
   "collection_id": "EXAMPLE_COLLECTION_1",
   "depositor": "DEPOSITOR",
   "steward": "net272",
-  "documentation": "cular:1330443",
-  "locations": [
-    "s3://BUCKET/COLL",
-    "file://cul/data/archival03"
-  ],
+  "documentation": "urn:uuid:a036a6c0-3038-4bee-a6b6-b80c7a7858ff",
   "number_packages": 1,
   "packages": [
     {
