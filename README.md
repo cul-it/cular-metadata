@@ -15,10 +15,10 @@ The storage manifest is created in two stages. In the first stage, an intermedia
 In the second phase, the CULAR application generates the storage manifest from the ingest manifest after the ingest (i.e., transfer and fixity check) is complete. For each file referenced, the CULAR application populates the `ingest_date`, `tool_version`, and `media_type` fields in the storage manifest.
 
 ## Examples and schemas
-* Example ingest manifest
-* Example storage manifest
-* Ingest manifest schema
-* Storage manifest schema
+* [Example ingest manifest](examples/INGEST_Depositor_Collection_name.json)
+* [Example storage manifest](examples/INGEST_Depositor_Collection_name.json)
+* [Ingest manifest schema](schema_ingest_manifest.json)
+* [Storage manifest schema](schema_storage_manifest.json)
 
 ## Detailed specifications
 
