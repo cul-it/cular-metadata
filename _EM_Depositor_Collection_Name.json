@@ -1,0 +1,78 @@
+{
+  "depositor": "Depositor",
+  "collection_id": "CULAR_Colllection_ID",
+  "steward": "net272",
+  "documentation": "urn:uuid:621d27a2-c673-40ef-9bc2-875de042d7d6",
+  "number_packages": 2,
+  "packages": [
+    {
+      "package_id": "urn:uuid:621d27a2-c673-40ef-9bc2-875de042d7d6",
+      "number_files": 3,
+      "files": [
+        {
+          "filepath": "_Documentation/CollectionEAD.xml",
+          "sha1": "55df863aed837d8e97661a6a8343dcfe8d668150",
+          "size": 29217,
+          "ingest_date": "2026-01-28",
+          "tool_version": "Apache Tika 2.9.2",
+          "media_type": "application/xml"
+        },
+        {
+          "filepath": "_Documentation/PreIngest_Report_CollectionName.pdf",
+          "sha1": "616bab2446420cbe579d819564472bdc6cd8af32",
+          "size": 186676,
+          "ingest_date": "2026-01-28",
+          "tool_version": "Apache Tika 2.9.2",
+          "media_type": "application/pdf"
+        },
+        {
+          "filepath": "_Documentation/CollectionNumber_ReadMe_Digitization_Specs.txt",
+          "sha1": "c49970f1f001d523a21213f651768afe2c6ae0b9",
+          "size": 5681,
+          "ingest_date": "2026-01-28",
+          "tool_version": "Apache Tika 2.9.2",
+          "media_type": "text/plain"
+        }
+      ]
+    },
+    {
+      "package_id": "urn:uuid:4138928d-34ab-4867-9590-61651b798371",
+      "local_id": "LocalID",
+      "number_files": 4,
+      "files": [
+        {
+          "filepath": "CollectionName_LocalID/CollectionName_LocalID_mkv_exiftool.xml",
+          "sha1": "d9e98abce1bef7b839c9331c2dfae7f236debe8d",
+          "size": 2837,
+          "ingest_date": "2026-01-28",
+          "tool_version": "Apache Tika 2.9.2",
+          "media_type": "application/rdf+xml"
+        },
+        {
+          "filepath": "CollectionName_LocalID/CollectionName_LocalID_mp4_exiftool.xml",
+          "sha1": "8311f1de8d2a2a25ae5fb27d19a851142bf45af1",
+          "size": 8033,
+          "ingest_date": "2026-01-28",
+          "tool_version": "Apache Tika 2.9.2",
+          "media_type": "application/rdf+xml"
+        },
+        {
+          "filepath": "CollectionName_LocalID/CollectionName_LocalID.mkv",
+          "sha1": "dc2701bb053d3ea3777623268a35c06462b27e1c",
+          "size": 66822203,
+          "ingest_date": "2026-01-28",
+          "tool_version": "Apache Tika 2.9.2",
+          "media_type": "video/x-matroska"
+        },
+        {
+          "filepath": "CollectionName_LocalID/CollectionName_LocalID.mp4",
+          "sha1": "7108faaf4bb78bf1a69818041a7c56a3d66e2068",
+          "size": 11030173,
+          "ingest_date": "2026-01-28",
+          "tool_version": "Apache Tika 2.9.2",
+          "media_type": "video/mp4"
+        }
+      ]
+    }
+  ]
+}
