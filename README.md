@@ -1,13 +1,16 @@
 # Cornell University Library Archival Repository Storage Manifest Specification
 
 ## Overview
-All collections in CULAR are represented by a storage manifest. The manifest is a JSON document that includes specific details at the collection, package, and item level for digital assets deposited into CULAR. 
+This document is part of the publicly available documentation for the Cornell University Library Archival Repository (CULAR). This documentation describes the technical structure the Cornell University Library (CUL) team has chosen to represent the collection material preserved in CULAR. This documentation is aimed at external developers who are interested in understanding the metadata structure developed to represent digital assets in CULAR storage, as well as internal CUL developers who are writing integrations with systems to organize and arrange collection material for deposit. CUL stakeholders directly preparing collections for ingest will want to consult internal documentation to supplement the technical detail offered here. 
+
+All collections in CULAR are represented by a storage manifest. The manifest is a JSON document that includes specific details at the collection, package, and item level for all digital assets deposited into CULAR, independent of the storage that contains them. Various workflows (e.g., fixity, retrieval, administration, analysis, etc.) are supported by this manifest.
+
 The storage manifest includes the following:
 * Collection-level properties: Collection level identifier, depositor, steward, and pointer to documentation package
 * Package-level properties: Identifiers from a system of record (e.g., FOLIO or ASpace) that pertain to the package
 * File-level properties: Fixity value(s), filesize in bytes, date of ingest in CULAR, file identification information
 
-The primary purpose of the storage manifest is to support workflows that verify fixity and completeness of packages within CULAR collections. The metadata contained in the storage manifest is indexed and represented in a PostgreSQL database, available to CULAR administrators, select depositors, and select developers assisting in preparing collections for ingest into CULAR.
+The metadata contained in the storage manifest is indexed and represented in a PostgreSQL database, available to CULAR administrators, select depositors, and select developers assisting in preparing collections for ingest into CULAR.
 
 ## Technical detail
 The storage manifest is created in two stages. In the first stage, an intermediate form of the manifest, known as the "ingest manifest", lists all the files being furnished for deposit, with optional fixity information for those files (see note in table below); how files are arranged into packages; and basic collection information. The CULAR application ensures that all files in the source directory (as specified in the configuration file for the ingest) are referenced in the ingest manifest and only the files referenced in the ingest manifest exist in the source directory. The CULAR application then updates the `source_path` field so that the absolute path for each file can be determined for transfer. The requirements for this stage of the manifest are listed in the table below, under the column labeled “Ingest Requirements.”
@@ -56,16 +59,10 @@ Each object in the `files` array may have the following properties:
 |----------------|------------------------------|-------------------------------|-------------|
 | `filepath`     | required          | required          | Path and filename of the file within the package. The character `/` MUST be used as a path separator (not `\` as is used on Windows systems). Following Bagit, if a `filepath` includes a Line Feed (LF), a Carriage Return (CR), a Carriage-Return Line Feed (CRLF), or a percent sign (%), those characters (and only those) MUST be percent-encoded following [RFC3986] |
 | `sha1`         | optional          | required          | SHA-1 hash of data (hex encoded using lowercase alphas, same as output from `sha1sum`, e.g. `021ea82f0468043e81a734b1342b1e64904672b0`). If present for ingest, it will be verified; otherwise it will be calculated by ingest code. |
-| `md5`          | optional          | optional          | MD5 hash of data (hex encoded using lowercase alphas, same as output from `md5sum`, e.g. `d41d8cd98f00b204e9800998ecf8427e`). May or may not be present on ingest, will be verified and retained if present |
+| `md5`          | optional          | optional          | MD5 hash of data (hex encoded using lowercase alphas, same as output from `md5sum`, e.g. `d41d8cd98f00b204e9800998ecf8427e`). May or may not be present on ingest, will be verified and retained if present. |
 | `size`         | optional          | required          | Size of the file in bytes, an integer value. If not present for ingest, will be calculated by ingest code. |
 | `ingest_date`  | not-allowed       | required          | Date of ingest of the file. |
 | `tool_version` | required       | required          | Must be left blank in ingest manifest. String representing the tool and version of the file identification utility run. (e.g., `tika-2.1.0`) |
 | `media_type`   | required       | required          | Must be left blank in ingest manifest. The media type of the file referenced by `filepath` using the tool referenced in `tool_version`. |
-
-### Information for developers preparing material for CULAR on behalf of depositors
-
-Depositors and stakeholders preparing collections for ingest into CULAR may offer an ingest manifest to specify files offered for deposit into a new or existing CULAR collection. When creating an ingest manifest, `sha1` and `md5` fixity values are not required. Their use is strongly encouraged when their values provide chain of custody or provenance information. Developers who are generating ingest manifests on behalf of depositors should consult with depositors to determine whether it is appropriate to include fixity information in the ingest manifest.
-
-Note that some depositors and stakeholders may be working with the CULAR team to prepare collections for ingest, and in that workflow, they may offer plain text (CSV) files listing all files offered for deposit, which are then transformed into the ingest manifest structure by the CULAR team.
 
 
