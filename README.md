@@ -1,7 +1,9 @@
 # Cornell University Library Archival Repository Storage Manifest Specification
 
 ## Overview
-This document is part of the publicly available documentation for the Cornell University Library Archival Repository (CULAR). This documentation describes the technical structure the Cornell University Library (CUL) team has chosen to represent the collection material preserved in CULAR. This documentation is aimed at external developers who are interested in understanding the metadata structure developed to represent digital assets in CULAR storage, as well as internal CUL developers who are writing integrations with systems to organize and arrange collection material for deposit. CUL stakeholders directly preparing collections for ingest will want to consult internal documentation to supplement the technical detail offered here. 
+This document is part of the publicly available documentation for the Cornell University Library Archival Repository (CULAR) and describes the technical structure the Cornell University Library (CUL) team has chosen to represent the collection material preserved in CULAR. 
+
+This documentation is aimed at external developers who are interested in understanding the metadata structure developed to represent digital assets in CULAR storage, as well as internal CUL developers who are writing integrations with systems to organize and arrange collection material for deposit. CUL stakeholders directly preparing collections for ingest will want to consult internal documentation to supplement the technical detail offered here. 
 
 All collections in CULAR are represented by a storage manifest. The manifest is a JSON document that includes specific details at the collection, package, and item level for all digital assets deposited into CULAR, independent of the storage that contains them. Various workflows (e.g., fixity, retrieval, administration, analysis, etc.) are supported by this manifest.
 
