@@ -34,7 +34,7 @@ In the second phase, the CULAR application generates the storage manifest from t
 | `collection_id`   | required          | required          | The intellectual aggregation as assembled by the steward acting as depositor.  In the case of RMC entities, use Archival Collection IDs. If collection is not archival, but cataloged, use BibID. Must be provided if available. Examples: `RMM06885` (Bolivian Pamphlets), `RMA03590` (Cornell Hockey Films), `5780-156` (Kheel). Primarily letters and numbers, case sensitive, may contain a space, dash or underscore, must not contain a `/`. |
 | `depositor`       | required          | required          | The subject area designation driven off the area list and Archival units (`RMC/RMM`, `RMC/RMA`, `Kheel`, `ILR`, `Music`, etc). |
 | `steward`         | required          | required          | The netID of the Digital Collection steward. String must match netID pattern. |
-| `documentation`          | required          | required          | A pointer to where to find collection-level documentation (i.e., CULAR PID). |
+| `documentation`          | required          | required          | The `package_id` for collection-level documentation for this collection. |
 | `packages`        | required         | required            | Array of package objects |
 | `number_packages` | optional         | required            | The number of entries in the `packages` array, allows self-checking for consistency if present. An integer. |
 
