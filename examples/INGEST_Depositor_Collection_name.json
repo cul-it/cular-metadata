@@ -1,0 +1,76 @@
+{
+    "collection_id": "CULAR_Colllection_ID",
+    "depositor": "Depositor",
+    "steward": "net272",
+    "documentation": "urn:uuid:621d27a2-c673-40ef-9bc2-875de042d7d6",
+    "packages": [
+        {
+            "package_id": "urn:uuid:621d27a2-c673-40ef-9bc2-875de042d7d6",
+            "source_path": null,
+            "bibid": null,
+            "local_id": null,
+            "files": [
+                {
+                    "filepath": "_Documentation/CollectionEAD.xml",
+                    "md5": null,
+                    "sha1": "55df863aed837d8e97661a6a8343dcfe8d668150",
+                    "size": 29217,
+                    "ingest_date": null
+                },
+                {
+                    "filepath": "_Documentation/PreIngest_Report_CollectioName.pdf",
+                    "md5": null,
+                    "sha1": "616bab2446420cbe579d819564472bdc6cd8af32",
+                    "size": 186676,
+                    "ingest_date": null
+                },
+                {
+                    "filepath": "_Documentation/CollectionNumber_ReadMe_Digitization_Specs.txt",
+                    "md5": null,
+                    "sha1": null,
+                    "size": null,
+                    "ingest_date": null
+                }
+            ],
+            "number_files": 3
+        },
+        {
+            "package_id": "urn:uuid:4138928d-34ab-4867-9590-61651b798371",
+            "source_path": null,
+            "bibid": null,
+            "local_id": "",
+            "files": [
+                {
+                    "filepath": "CollectionName_LocalID/CollectionName_LocalID_mkv_exiftool.xml",
+                    "md5": null,
+                    "sha1": null,
+                    "size": null,
+                    "ingest_date": null
+                },
+                {
+                    "filepath": "CollectionName_LocalID/CollectionName_LocalID_mp4_exiftool.xml",
+                    "md5": null,
+                    "sha1": null,
+                    "size": null,
+                    "ingest_date": null
+                },
+                {
+                    "filepath": "CollectionName_LocalID/CollectionName_LocalID.mkv",
+                    "md5": null,
+                    "sha1": "dc2701bb053d3ea3777623268a35c06462b27e1c",
+                    "size": 66822203,
+                    "ingest_date": null
+                },
+                {
+                    "filepath": "CollectionName_LocalID/CollectionName_LocalID.mp4",
+                    "md5": null,
+                    "sha1": null,
+                    "size": null,
+                    "ingest_date": null
+                }
+            ],
+            "number_files": 4
+        }
+    ],
+    "number_packages": 2
+}
